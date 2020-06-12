@@ -1,0 +1,1533 @@
+/*! HTML5 Boilerplate v7.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+/*New Fonts Start*/
+
+@font-face {
+  font-family: "pf_handbook_proregular";
+  src: url("../font/pfhandbookpro-regular.eot");
+  src: url("../font/pfhandbookpro-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../font/pfhandbookpro-regular.woff2") format("woff2"),
+    url("../font/pfhandbookpro-regular.woff") format("woff"),
+    url("../font/pfhandbookpro-regular.svg#pf_handbook_proregular")
+      format("svg");
+  font-weight: 400 !important;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pf_handbook_probold";
+  src: url("../font/pfhandbookpro-bold.eot");
+  src: url("../font/pfhandbookpro-bold.eot?#iefix") format("embedded-opentype"),
+    url("../font/pfhandbookpro-bold.woff2") format("woff2"),
+    url("../font/pfhandbookpro-bold.woff") format("woff"),
+    url("../font/pfhandbookpro-bold.svg#pf_handbook_probold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pf_handbook_prolight";
+  src: url("../font/pfhandbookpro-light.eot");
+  src: url("../font/pfhandbookpro-light.eot?#iefix") format("embedded-opentype"),
+    url("../font/pfhandbookpro-light.woff2") format("woff2"),
+    url("../font/pfhandbookpro-light.woff") format("woff"),
+    url("../font/pfhandbookpro-light.svg#pf_handbook_probold") format("svg");
+  font-weight: 300 !important;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pf_handbookpro_promedium";
+  src: url("../font/pfhandbookpro-medium.eot");
+  src: url("../font/pfhandbookpro-medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../font/pfhandbookpro-medium.woff2") format("woff2"),
+    url("../font/pfhandbookpro-medium.woff") format("woff"),
+    url("../font/pfhandbookpro-medium.svg#pf_handbook_probold") format("svg");
+  font-weight: 500 !important;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pf_encore_sans_probold";
+  src: url("../font/pfencoresanspro-bold.eot");
+  src: url("../font/pfencoresanspro-bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../font/pfencoresanspro-bold.woff2") format("woff2"),
+    url("../font/pfencoresanspro-bold.woff") format("woff"),
+    url("../font/pfencoresanspro-bold.svg#pf_encore_sans_probold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pf_encore_sans_proregular";
+  src: url("../font/pfencoresanspro-reg.eot");
+  src: url("../font/pfencoresanspro-reg.eot?#iefix") format("embedded-opentype"),
+    url("../font/pfencoresanspro-reg.woff2") format("woff2"),
+    url("../font/pfencoresanspro-reg.woff") format("woff"),
+    url("../font/pfencoresanspro-reg.svg#pf_encore_sans_proregular")
+      format("svg");
+  font-weight: 400 !important;
+  font-style: normal;
+}
+
+/*New Fonts End*/
+
+/* ******** fonts start *************/
+
+/*===================fonts========================*/
+@font-face {
+  font-family: "PFEncoreSansPro";
+  src: url(../fonts/PFEncoreSansPro-Regular.eot);
+  src: url(../fonts/PFEncoreSansPro-Regular.woff2) format("woff2"),
+    url(../fonts/PFEncoreSansPro-Regular.woff) format("woff"),
+    url(../fonts/PFEncoreSansPro-Regular.ttf) format("truetype"),
+    url(../fonts/PFEncoreSansPro-Regular.eot?#iefix) format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PFEncoreSansPro";
+  src: url(../fonts/PFEncoreSansPro-Bold.otf);
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PFHandbookPro-Regular";
+  src: url(../fonts/PFHandbookPro-Regular.woff) format("woff"),
+    url(../fonts/PFHandbookPro-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PFHandbookPro-Bold";
+  src: url(../fonts/PFHandbookPro-Bold.eot);
+  src: url(../fonts/PFHandbookPro-Bold.woff2) format("woff2"),
+    url(../fonts/PFHandbookPro-Bold.woff) format("woff"),
+    url(../fonts/PFHandbookPro-Bold.ttf) format("truetype"),
+    url(../fonts/PFHandbookPro-Bold.eot?#iefix) format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PFHandbookPro-Light";
+  src: url(../fonts/PFHandbookPro-Light.eot);
+  src: url(../fonts/PFHandbookPro-Light.woff2) format("woff2"),
+    url(../fonts/PFHandbookPro-Light.woff) format("woff"),
+    url(../fonts/PFHandbookPro-Light.ttf) format("truetype"),
+    url(../fonts/PFHandbookPro-Light.svg#PFHandbookPro-Light) format("svg"),
+    url(../fonts/PFHandbookPro-Light.eot?#iefix) format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "icon-font";
+  src: url(../fonts/icon-font.eot);
+  src: url(../fonts/icon-font.woff2) format("woff2"),
+    url(../fonts/icon-font.eot?#iefix) format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "untitled-font-13";
+  src: url(../fonts/untitled-font-13.woff) format("woff"),
+    url(../fonts/untitled-font-13.ttf) format("truetype"),
+    url(../fonts/untitled-font-13.svg#untitled-font-13) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.abcicons:before,
+.abcicons:before {
+  font-family: "untitled-font-13";
+  content: attr(data-icon);
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+}
+
+.icon-icon-alert:before {
+  content: "\61";
+}
+
+.icon-icon-arrow-left:before {
+  content: "\62";
+}
+
+.icon-icon-arrow-right:before {
+  content: "\63";
+}
+
+.icon-icon-chevron-down:before {
+  content: "\64";
+}
+
+.icon-icon-close:before {
+  content: "\66";
+}
+
+.icon-icon-facebook:before {
+  content: "\67";
+}
+
+.icon-icon-info:before {
+  content: "\68";
+}
+
+.icon-icon-login:before {
+  content: "\69";
+}
+
+.icon-icon-menu:before {
+  content: "\6a";
+}
+
+.icon-icon-minus:before {
+  content: "\6b";
+}
+
+.icon-icon-notification:before {
+  content: "\6c";
+}
+
+.icon-icon-password-hidden:before {
+  content: "\6d";
+}
+
+.icon-icon-youtube:before {
+  content: "\6e";
+}
+
+.icon-icon-wishlist:before {
+  content: "\6f";
+}
+
+.icon-icon-whatsapp:before {
+  content: "\70";
+}
+
+.icon-icon-twitter:before {
+  content: "\71";
+}
+
+.icon-icon-tick:before {
+  content: "\72";
+}
+
+.icon-icon-search:before {
+  content: "\73";
+}
+
+.icon-icon-plus:before {
+  content: "\74";
+}
+
+.icon-icon-password-visible:before {
+  content: "\75";
+}
+
+.icon-icon-phone:before {
+  content: "\76";
+}
+
+.icon-icon-bullet:before {
+  content: "\77";
+}
+
+.icon-large-chevron-right:before {
+  content: "\78";
+}
+
+.icon-large-chevron-left:before {
+  content: "\79";
+}
+
+/* ********** fonts end ************/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  font-family: "PFHandbookPro-Regular";
+  background: #f1f3f6;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1270px !important;
+  /*max-width: 1370px !important;
+	padding: 0px !important;*/
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.msc-card-img,
+.msc-card,
+.msc-card-article {
+  margin-top: 1em;
+  background: #f1f3f6;
+  border: none;
+  border-radius: 10px;
+  box-shadow: -12px -12px 20px #ffffff, 12px 12px 20px rgba(208, 208, 208, 0.77);
+}
+
+.msc-card-border-absli {
+  border: 1px solid #c7222a;
+}
+
+.msc-card-pink {
+  border: none;
+  margin-top: 1em;
+  background: #d68e87;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+}
+
+.msc-card-img .card-title {
+  font-family: "pf_handbook_probold";
+  color: #c7222a;
+  font-size: 34px;
+  line-height: 140%;
+}
+
+.msc-card .card-title {
+  font-family: "pf_handbook_proregular";
+  color: #c7222a;
+  font-size: 22px;
+  text-transform: uppercase;
+  line-height: 110%;
+}
+
+.msc-card-pink .card-title {
+  font-family: "pf_handbook_proregular";
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 110%;
+}
+
+.msc-card-pink .sub-title {
+  font-family: "pf_handbook_proregular";
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 110%;
+}
+
+.msc-card-article .card-title {
+  font-family: "pf_handbook_proregular";
+  color: #c7222a;
+  font-size: 28px;
+  line-height: 110%;
+}
+
+.msc-card .card-title-dark {
+  color: #8d1218;
+}
+
+.msc-card .card-title-dark > span {
+  font-size: 40px;
+  line-height: 110%;
+  text-align: center;
+  color: #d0d0d0;
+}
+
+.msc-card-img .card-text,
+.msc-card .card-text,
+.msc-card-article .card-text {
+  font-family: "pf_encore_sans_proregular";
+  color: #7c7c7b;
+  line-height: 140%;
+}
+
+.msc-card-pink .card-text {
+  font-family: "pf_encore_sans_proregular";
+  color: #6a4742;
+  line-height: 140%;
+}
+
+.msc-card-img .card-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.msc-card .card-body p.pink {
+  text-transform: uppercase;
+  color: #d68e87;
+  font-size: 1rem;
+}
+
+.btn-absli,
+.btn-absli-ghost {
+  font-family: "PFHandbookPro-Light";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 140px;
+  width: 140px;
+  height: 96px;
+  margin: 0 5px;
+  flex-wrap: wrap;
+  line-height: 110%;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+}
+
+.btn-absli {
+  background-color: #c7222a;
+  color: #ffffff;
+}
+
+.btn-absli-ghost {
+  background: #f1f3f6;
+}
+
+.coupon-code {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.coupon-number {
+  color: #c7222a;
+  font-size: 24px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.social-icons a {
+  width: 59px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #f1f3f6;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+}
+/*
+.social-icons a > i::before {
+  font-size: 24px;
+  display: flex;
+  color: #7c7c7b;
+} */
+
+.btn-regular {
+  font-family: "PFHandbookPro-Light";
+  color: #7c7c7b;
+  text-transform: uppercase;
+  background: #f1f3f6;
+  box-shadow: -12px -12px 20px #ffffff, 12px 12px 20px rgba(208, 208, 208, 0.77);
+}
+
+.btn-back {
+  font-family: "PFHandbookPro-Light";
+  color: #7c7c7b;
+  text-transform: uppercase;
+  background: #f1f3f6;
+  border: 1px solid #7c7c7b;
+  width: 83px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-regular-border {
+  border: 1px solid #7c7c7b;
+}
+
+.btn-regular-height {
+  width: 59px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-absli-regular,
+.btn-absli-regular-dark {
+  font-family: "PFHandbookPro-Light";
+  min-width: 122px;
+  text-transform: uppercase;
+  background: #c7222a;
+  color: #ffffff;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+}
+
+.btn-absli-regular-dark {
+  background: #8d1218;
+}
+
+.btn-absli-regular-dark-border {
+  border: 1px solid #8d1218;
+  color: #8d1218;
+  font-family: "PFHandbookPro-Light";
+  text-transform: uppercase;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+}
+
+.btn-absli-regular:hover,
+.btn-absli-regular:visited,
+.btn-absli-regular:active,
+.btn-absli-regular-dark:hover,
+.btn-absli-regular-dark:visited,
+.btn-absli-regular-dark:active {
+  font-family: "PFHandbookPro-Light";
+  min-width: 122px;
+  text-transform: uppercase;
+  background: #c7222a;
+  color: #ffffff;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+}
+
+.btn-absli-regular-dark:hover,
+.btn-absli-regular-dark:visited,
+.btn-absli-regular-dark:active {
+  background: #8d1218;
+}
+
+.btn-absli-regular-dark-border:hover,
+.btn-absli-regular-dark-border:visited,
+.btn-absli-regular-dark-border:active {
+  border: 1px solid #8d1218;
+  color: #8d1218;
+}
+
+.btn-absli-regular:hover,
+.btn-absli-regular:visited,
+.btn-absli-regular:active {
+  background: #c7222a;
+  color: #ffffff;
+}
+.btn-regular-border:hover,
+.btn-regular-border:visited,
+.btn-regular-border:active {
+  border: 1px solid #7c7c7b !important;
+  color: #7c7c7b;
+}
+
+.video-container a:hover,
+.video-container a:visited,
+.video-container a:focus {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.article-container a:hover,
+.article-container a:visited,
+.article-container a:focus,
+.article-container-a a:hover,
+.article-container-a a:visited,
+.article-container-a a:focus {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.video-rectangle,
+.article-rectangle,
+.article-rectangle-a {
+  position: relative;
+}
+
+.rectangle,
+.rectangle-article,
+.rectangle-article-a {
+  background: linear-gradient(
+    270deg,
+    #f1f3f6 28.63%,
+    rgba(241, 243, 246, 0) 100%
+  );
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -15px;
+  z-index: 9999;
+}
+
+.rectangle {
+  width: 83px;
+  height: 190px;
+}
+
+.rectangle-article,
+.rectangle-article-a {
+  width: 83px;
+  height: 300px;
+}
+
+.video-content {
+  margin-top: 10px;
+  height: 157px;
+  background: linear-gradient(
+      0.23deg,
+      #7c7c7b 0.76%,
+      rgba(124, 124, 123, 0) 67.56%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../img/child-plane-1.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 1em;
+}
+
+.video-content:focus {
+  outline: none !important;
+}
+
+.article-container .col-12:focus {
+  outline: none !important;
+}
+
+.video-content a {
+  color: #ffffff;
+}
+
+.video-content .play-button {
+  background-image: url("../img/play-button.svg");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.video-content h3 {
+  font-size: 20px;
+  line-height: 110%;
+}
+
+.video-content p {
+  font-family: "pf_encore_sans_proregular";
+  font-size: 12px;
+  line-height: 110%;
+  margin-bottom: 0.25rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.video-content .video-time {
+  font-family: "pf_handbook_proregular";
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 110%;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.video-container .slick-list {
+  height: 200px;
+}
+
+.article-container .slick-list,
+.article-container-a .slick-list {
+  height: 325px;
+}
+
+.slick-slide > .msc-card .card-title {
+  text-transform: capitalize;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "untitled-font-13";
+  color: #7c7c7b;
+  width: 43px;
+  height: 43px;
+  padding: 1rem;
+  border-radius: 100%;
+  background: #f1f3f6;
+  box-shadow: -8.19048px -8.19048px 16.381px #ffffff,
+    8.19048px 8.19048px 16.381px rgba(208, 208, 208, 0.5);
+}
+
+.slick-prev:before {
+  content: "\79";
+}
+
+.slick-next:before {
+  content: "\78";
+}
+
+.child-benefits {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.child-benefits > .b_num {
+  font-size: 40px;
+  line-height: 110%;
+  text-align: center;
+  color: #d0d0d0;
+}
+
+.child-benefits .benefits-content {
+  font-family: "pf_encore_sans_proregular";
+  font-size: 1rem;
+  line-height: 140%;
+  color: #7c7c7b;
+  padding: 0 0.25rem;
+}
+
+.child-benefits .benefits-icon {
+  margin: auto;
+  margin-right: 0;
+}
+
+.msc-footer {
+  margin-top: 20px;
+  border: none;
+  background: #f1f3f6;
+  font-family: "pf_encore_sans_proregular";
+}
+
+.msc-footer .card-title {
+  font-size: 11px;
+  color: #000000;
+  text-transform: uppercase;
+  font-family: "pf_encore_sans_probold";
+  line-height: 140%;
+}
+
+.msc-footer .card-title > span {
+  text-transform: capitalize;
+  line-height: 140%;
+}
+
+.msc-footer .card-text {
+  font-size: 11px;
+  line-height: 140%;
+  color: #7c7c7b;
+}
+
+.msc-footer-box {
+  background: #f1f3f6;
+  font-family: "pf_encore_sans_proregular";
+  border: none;
+  font-size: 11px;
+  color: #7c7c7b;
+  line-height: 140%;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+}
+
+.msc-footer-box .card-body {
+  padding: 15px;
+}
+
+.msc-footer-box .card-title {
+  font-size: 11px;
+  color: #000000;
+  font-family: "pf_encore_sans_probold";
+}
+
+.slick-list {
+  padding: 0 20% 0 0;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/* Range Slider | START */
+.irs--round .irs-handle {
+  border: 4px solid #c7222a;
+}
+
+.irs--round .irs-bar,
+.irs--round .irs-single {
+  background-color: #c7222a;
+  font-family: "pf_handbook_proregular";
+}
+
+.irs--round .irs-min,
+.irs--round .irs-max {
+  font-family: "pf_handbook_proregular";
+}
+
+.irs--round .irs-single:before {
+  border-top-color: #c7222a;
+}
+/* Range Slider | END */
+
+/* Request Form | START */
+.cfp-form input,
+.cfp-form label,
+.form-tab1,
+.form-tab2,
+.form-tab3 {
+  width: 100%;
+  max-width: 100%;
+}
+
+.cfp-form label {
+  font-size: 12px;
+  font-family: "pf_encore_sans_proregular";
+  color: #6a4742;
+  line-height: 140%;
+  margin-top: 25px;
+  margin-left: 0.75rem;
+  margin-bottom: 0.2rem;
+  justify-content: flex-start;
+}
+
+.cfp-form label:first-of-type {
+  margin-top: 0;
+}
+
+.cfp-form input,
+.cfp-form .input-group-text {
+  font-family: "pf_encore_sans_proregular";
+  background: rgba(208, 208, 208, 0.2);
+  border: none;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 0;
+}
+
+.cfp-form .form-control:focus {
+  background: rgba(208, 208, 208, 0.2);
+  border-bottom: 1px solid #d0d0d0;
+  box-shadow: none;
+}
+
+.cfp-form .custom-control > label {
+  margin-left: 0;
+  color: #7c7c7b;
+  font-family: "pf_encore_sans_proregular";
+  font-size: 12px;
+  padding: 0 1.45rem 0 0;
+  height: auto;
+}
+
+.cfp-form .custom-control-label::after {
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  left: -2px;
+}
+
+.cfp-form .custom-control-input:active ~ .custom-control-label::before {
+  color: #fff;
+  background-color: #b3d7ff;
+}
+
+.cfp-form .custom-control-label::before {
+  background-color: transparent;
+  border: 1px solid #7c7c7b;
+}
+
+.cfp-form
+  .custom-checkbox
+  .custom-control-input:checked
+  ~ .custom-control-label::before {
+  background-color: transparent;
+}
+
+.cfp-form
+  .custom-checkbox
+  .custom-control-input:checked
+  ~ .custom-control-label::after {
+  background-image: url("../img/checkbox.svg");
+}
+
+.cfp-form .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none;
+}
+
+.cfp-form .custom-control {
+  position: relative;
+  max-height: 50px;
+  overflow: hidden;
+}
+
+.cfp-form .custom-control .read-more-down {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(241, 243, 246, 0) 0%, #f1f3f6 100%);
+}
+
+.cfp-form .checkbox-arrow {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.req-form-button {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.req-points {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.req-points > .form-active {
+  width: 16px;
+  height: 16px;
+  background: #f1f3f6;
+  border: 1px solid #d0d0d0;
+  border-radius: 100%;
+  box-sizing: border-box;
+  margin-right: 0.5rem;
+  box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
+}
+
+.req-points > .form-active.show {
+  background: #c7222a;
+}
+
+.form-tab2 input {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+/* Request Form | END */
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+  display: none !important;
+}
+
+/*
+* Hide only visually, but have it available for screen readers:
+* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*
+* 1. For long content, line feeds are not interpreted as spaces and small width
+*    causes content to wrap 1 word per line:
+*    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+*/
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+* Extends the .sr-only class to allow the element
+* to be focusable when navigated to via the keyboard:
+* https://www.drupal.org/node/897638
+*/
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+* Hide visually and from screen readers, but maintain layout
+*/
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .article-container .slick-list {
+    height: 275px;
+  }
+
+  .slick-prev {
+    left: -70px !important;
+  }
+
+  .slick-next {
+    right: -30px !important;
+  }
+
+  .article-container-a .slick-prev,
+  .article-container-a .slick-next {
+    top: 100%;
+  }
+
+  .article-container-a .slick-next {
+    left: 50%;
+    transform: translate(25%, 0);
+  }
+
+  .article-container-a .slick-prev {
+    left: 50% !important;
+    transform: translate(-300%, 0);
+  }
+
+  .msc-card-img {
+    position: relative;
+  }
+
+  .msc-card-img .card-title {
+    display: block !important;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+  .hero-img {
+    position: relative;
+  }
+
+  .hero-img h1 {
+    position: absolute;
+    color: #ffffff;
+    left: 10%;
+    bottom: 10%;
+  }
+
+  .child-benefits .benefits-content {
+    padding: 0 1rem;
+  }
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .article-container .slick-list {
+    height: 275px;
+  }
+
+  .slick-prev {
+    left: -70px !important;
+  }
+
+  .slick-next {
+    right: -30px !important;
+  }
+
+  .article-container-a .slick-prev,
+  .article-container-a .slick-next {
+    top: 100%;
+  }
+
+  .article-container-a .slick-next {
+    left: 50%;
+    transform: translate(25%, 0);
+  }
+
+  .article-container-a .slick-prev {
+    left: 50% !important;
+    transform: translate(-300%, 0);
+  }
+
+  .hero-img {
+    position: relative;
+  }
+
+  .hero-img h1 {
+    position: absolute;
+    color: #ffffff;
+    left: 10%;
+    bottom: 10%;
+  }
+
+  .child-benefits .benefits-content {
+    padding: 0 1rem;
+  }
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .article-container .slick-list {
+    height: 275px;
+  }
+
+  .slick-prev {
+    left: -70px !important;
+  }
+
+  .slick-next {
+    right: -30px !important;
+  }
+
+  .article-container-a .slick-prev,
+  .article-container-a .slick-next {
+    top: 100%;
+  }
+
+  .article-container-a .slick-next {
+    left: 50%;
+    transform: translate(25%, 0);
+  }
+
+  .article-container-a .slick-prev {
+    left: 50% !important;
+    transform: translate(-300%, 0);
+  }
+
+  .hero-img {
+    position: relative;
+  }
+
+  .hero-img h1 {
+    position: absolute;
+    color: #ffffff;
+    left: 10%;
+    bottom: 10%;
+  }
+
+  .child-benefits .benefits-content {
+    padding: 0 1rem;
+  }
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .article-container .slick-list {
+    height: 275px;
+  }
+
+  .slick-prev {
+    left: -70px !important;
+  }
+
+  .slick-next {
+    right: -30px !important;
+  }
+
+  .article-container-a .slick-prev,
+  .article-container-a .slick-next {
+    top: 100%;
+  }
+
+  .article-container-a .slick-next {
+    left: 50%;
+    transform: translate(25%, 0);
+  }
+
+  .article-container-a .slick-prev {
+    left: 50% !important;
+    transform: translate(-300%, 0);
+  }
+
+  .hero-img {
+    position: relative;
+  }
+
+  .hero-img h1 {
+    position: absolute;
+    color: #ffffff;
+    left: 10%;
+    bottom: 10%;
+  }
+
+  .child-benefits .benefits-content {
+    padding: 0 1rem;
+  }
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .hide-desktop {
+    display: none !important;
+  }
+
+  .slick-prev,
+  .slick-next {
+    top: 100%;
+  }
+
+  .slick-next {
+    left: 50%;
+    transform: translate(25%, 0);
+  }
+
+  .slick-prev {
+    left: 50%;
+    transform: translate(-300%, 0);
+  }
+
+  .article-container-a .slick-prev,
+  .article-container-a .slick-next {
+    top: 100%;
+  }
+
+  .article-container-a .slick-next {
+    left: 50%;
+    transform: translate(25%, 0);
+  }
+
+  .article-container-a .slick-prev {
+    left: 50% !important;
+    transform: translate(-300%, 0);
+  }
+
+  .card--accordion-content {
+    max-height: 97px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+
+  .card--accordion-content .card-body {
+    background: #c7222a;
+    border-radius: 10px;
+  }
+
+  .card--accordion-content .card-title {
+    color: #ffffff;
+    background: #c7222a;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card--accordion-content-opened {
+    overflow: hidden;
+    height: auto;
+    max-height: 1600px;
+    transition: max-height 0.4s ease-in;
+  }
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .hide-desktop {
+    display: none !important;
+  }
+
+  .slick-prev,
+  .slick-next {
+    top: 100%;
+  }
+
+  .slick-next {
+    left: 50%;
+    transform: translate(25%, 0);
+  }
+
+  .slick-prev {
+    left: 50%;
+    transform: translate(-300%, 0);
+  }
+
+  .article-container-a .slick-prev,
+  .article-container-a .slick-next {
+    top: 100%;
+  }
+
+  .article-container-a .slick-next {
+    left: 50%;
+    transform: translate(25%, 0);
+  }
+
+  .article-container-a .slick-prev {
+    left: 50% !important;
+    transform: translate(-300%, 0);
+  }
+
+  .card--accordion-content {
+    max-height: 97px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+
+  .card--accordion-content .card-body {
+    background: #c7222a;
+    border-radius: 10px;
+  }
+
+  .card--accordion-content .card-title {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .card--accordion-content-opened {
+    overflow: hidden;
+    height: auto;
+    max-height: 1600px;
+    transition: max-height 0.8s ease-in;
+  }
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+     * Printing Tables:
+     * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
