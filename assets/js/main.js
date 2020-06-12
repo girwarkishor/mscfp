@@ -453,4 +453,10 @@ window.onload = function () {
     timeOutFunctionId = setTimeout(workAfterResizeIsDone, 500);
   });
   /* Window Reload | End */
+
+  // Nav Pill
+  $("#msc-tabs a").on("click", function (e) {
+    e.preventDefault();
+    $(this).parent().addClass("active").siblings().removeClass("active");
+  });
 };
