@@ -20,15 +20,6 @@ $(document).ready(function () {
     autoplay: true,
     autoplaySpeed: 2000,
   });
-  $(".js-range-slider").ionRangeSlider({
-    skin: "round",
-    min: 0,
-    max: 18,
-    grid: true,
-    max_postfix: "+",
-    prefix: "Age: ",
-    postfix: " years",
-  });
 
   $(function () {
     var $el, $ps, $up, totalHeight;
@@ -121,6 +112,51 @@ $(document).ready(function () {
   $(window).on("load resize", function () {
     setWindowWH();
   });
+
+  // Smooth Scroll
+  // Select all links with hashes
+  $('a[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function (event) {
+      // On-page links
+      if (
+        location.pathname.replace(/^\//, "") ==
+          this.pathname.replace(/^\//, "") &&
+        location.hostname == this.hostname
+      ) {
+        // Figure out element to scroll to
+        var target = $(this.hash);
+        target = target.length
+          ? target
+          : $("[name=" + this.hash.slice(1) + "]");
+        // Does a scroll target exist?
+        if (target.length) {
+          // Only prevent default if animation is actually gonna happen
+          event.preventDefault();
+          $("html, body").animate(
+            {
+              scrollTop: target.offset().top,
+            },
+            1000,
+            function () {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(":focus")) {
+                // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr("tabindex", "-1"); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              }
+            }
+          );
+        }
+      }
+    });
 });
 
 window.onload = function () {
@@ -142,6 +178,16 @@ window.onload = function () {
   var formActiveDsk = document.querySelectorAll(".dsk .form-active");
   var formActiveMob = document.querySelectorAll(".mob .form-active");
   var deskFormWidth = $(window).width();
+
+  $(".js-range-slider").ionRangeSlider({
+    skin: "round",
+    min: 0,
+    max: 20,
+    grid: true,
+    max_postfix: "+",
+    prefix: "Age: ",
+    postfix: " years",
+  });
 
   function winWidth() {
     return deskFormWidth;
@@ -458,5 +504,132 @@ window.onload = function () {
   $("#msc-tabs a").on("click", function (e) {
     e.preventDefault();
     $(this).parent().addClass("active").siblings().removeClass("active");
+  });
+
+  // Calculator | Start
+  // current cost of education for your child
+  var currentCostOfEducation = {
+    Accountant: 100000,
+    ArmedForces: 200000,
+    Artist: 1200000,
+    Chef: 800000,
+    Doctor: 3000000,
+    Engineer: 400000,
+    FashionDesigner: 600000,
+    ITProfessional: 1500000,
+    Lawyer: 800000,
+    Linguist: 200000,
+    Manager: 1500000,
+    MediaProfessional: 500000,
+    Pilot: 3000000,
+    Scientist: 200000,
+    SocialScientist: 200000,
+    SportsPerson: 1500000,
+    Teacher: 200000,
+  };
+
+  // current cost of marriage for your child
+  var currentCostOfMarriage = {
+    Son: 1000000,
+    Daughter: 1000000,
+  };
+
+  // form inputs
+  var userInputs = {
+    amountSaved: 0,
+    yearsAt: 1,
+    monthlySavings: 0,
+    inflation: 0.1,
+    ror: 0.05,
+  };
+  var childAge = 0;
+
+  // reflecting the value of the slider in the paragraph
+  function range(element) {
+    element.nextElementSibling.innerText = "Age: " + element.value;
+  }
+
+  // computing age from date of birth
+  function dob() {
+    return (
+      (Date.now() -
+        Date.parse(userInputs["dob"].split("/").reverse().join("-"))) /
+      (1000 * 60 * 60 * 24 * 365)
+    );
+  }
+
+  // the actual calculator math
+  function compute() {
+    var adjustedReturn =
+      (parseFloat(userInputs.ror) - parseFloat(userInputs.inflation)) /
+      (1 + parseFloat(userInputs.inflation));
+    var annualisedReturn =
+      parseFloat(userInputs.ror) / (1 + parseFloat(userInputs.ror));
+    var compounding = 12 * (1 - Math.pow(1 - annualisedReturn, 1 / 12));
+
+    //var yearsLeft = userInputs.yearsAt - childAge;
+
+    var yearsLeft = parseInt(userInputs.yearsAt);
+    var amountSaved = parseInt(userInputs.amountSaved);
+
+    var timeWeightedROR =
+      (Math.pow(1 + parseFloat(userInputs.ror), yearsLeft) - 1) / compounding;
+    var annualisedMonthlySavings = parseInt(userInputs.monthlySavings) * 12;
+    var totalSavings =
+      amountSaved * Math.pow(1 + userInputs.ror, yearsLeft) +
+      annualisedMonthlySavings * timeWeightedROR;
+    var amtRequiredToFund =
+      userInputs.scenario *
+      Math.pow(1 + parseFloat(userInputs.inflation), yearsLeft);
+    var totalAmtRequired = Math.round(amtRequiredToFund, 2);
+    var amountNeeded = amtRequiredToFund - totalSavings;
+    var monthlySavingNeeded = amountNeeded / timeWeightedROR / 12;
+    var howMuchToSave =
+      monthlySavingNeeded > 0 ? Math.round(monthlySavingNeeded, 4) : 0;
+
+    document.getElementById("fundRequired").innerText = isNaN(totalAmtRequired)
+      ? 0
+      : totalAmtRequired;
+    document.getElementById("monthlySavingsRequired").innerText = howMuchToSave;
+  }
+
+  document.querySelectorAll(".form").forEach(function (each) {
+    each.addEventListener("change", function (e) {
+      userInputs[e.target.id] = e.target.value;
+
+      if (e.target.type == "range") {
+        range(e.target);
+      }
+
+      if (e.target.id == "goal") {
+        if (e.target.value == "Education") {
+          document.getElementById("education").classList.contains("d-none")
+            ? document.getElementById("education").classList.remove("d-none")
+            : "";
+          document.getElementById("scenario").value = "";
+        } else if (e.target.value == "Marriage") {
+          document.getElementById("education").classList.contains("d-none")
+            ? ""
+            : document.getElementById("education").classList.add("d-none");
+          document.getElementById("scenario").value = currentCostOfMarriage.Son;
+          userInputs.scenario = currentCostOfMarriage.Son;
+        }
+      }
+
+      if (e.target.id == "profession") {
+        document.getElementById("scenario").value =
+          currentCostOfEducation[e.target.value];
+        userInputs.scenario = currentCostOfEducation[e.target.value];
+      }
+
+      compute();
+
+      //if (e.target.id == "dob") {
+      //    childAge = Math.floor(dob());
+      //    document.getElementById("yearsAt").setAttribute("min", childAge);
+      //    document.getElementById("yearsAt").value = childAge;
+      //    range(document.getElementById("yearsAt"));
+      //}
+    });
   });
 };

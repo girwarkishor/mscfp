@@ -1270,9 +1270,9 @@
                   </div>
                 </div>
                 <div
-                  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 order-4 order-md-4 order-lg-4 order-xl-4"
+                  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 order-6 order-md-4 order-lg-4 order-xl-4"
                 >
-                  <!-- <div class="card msc-card">
+                  <div class="card msc-card">
                     <div class="card-body">
                       <h4 class="card-title">Begin saving early</h4>
                       <p class="card-text">
@@ -1280,20 +1280,103 @@
                         and we'll suggest steps that you could take to save
                         enough money to secure your child's future.
                       </p>
-                      <p>
-                        <input
-                          type="text"
-                          class="js-range-slider"
-                          name="age_range"
-                          id="age_range"
-                          value=""
-                        />
-                      </p>
+                      <form class="cfp-form">
+                        <div>
+                          <div class="container p-0 mb-2">
+                            <div class="row">
+                              <div class="col-6">
+                                <label for="currentCost">Plan for a goal</label>
+                                <select class="select-css form" id="goal">
+                                  <option value="none" selected disabled>Select a Goal</option>
+                                  <option value="Education">Education</option>
+                                  <option value="Marriage">Marriage</option>
+                                </select>
+                              </div>
+                              <div class="col-6 d-none" id="education">
+                                <label for="currentCost">Qualification</label>
+                                <select class="select-css form" id="profession">
+                                  <option value="none" selected disabled>Choose a Profession</option>
+                                  <option value="Accountant">Accountant</option>
+                                  <option value="ArmedForces">Armed Forces</option>
+                                  <option value="Artist">Artist</option>
+                                  <option value="Chef">Chef</option>
+                                  <option value="Doctor">Doctor</option>
+                                  <option value="Engineer">Engineer</option>
+                                  <option value="FashionDesigner">Fashion Designer</option>
+                                  <option value="Lawyer">Lawyer</option>
+                                  <option value="Linguist">Linguist</option>
+                                  <option value="Manager">Manager</option>
+                                  <option value="MediaProfessional">Media Professional</option>
+                                  <option value="Pilot">Pilot</option>
+                                  <option value="Scientist">Scientist</option>
+                                  <option value="SocialScientist">Social Scientist</option>
+                                  <option value="SportsPerson">Sports Person</option>
+                                  <option value="Teacher">Teacher</option>
+                                </select>
+                              </div>
+                              <div class="col-12 mt-2">
+                                <label for="currentCost"
+                                  >Current Cost of Affairs</label
+                                >
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">₹</span>
+                                  </div>
+                                  <input
+                                    type="text"
+                                    class="form-control form"
+                                    placeholder="0.00" 
+                                    maxlength="10"
+                                    id="scenario"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div class="">
+                          <label for="ageRange"
+                            >How many years from now will you need the
+                            money?</label
+                          >
+                          <!-- <div class="range-slider">
+                            <input id="yearsAt" class="form" type="range" min="1" max="20" step="1" value="1" />
+                            <p id="yearsAt-val">Age: 0</p>
+                            <span>0yrs</span><span>20yrs</span>
+                          </div> -->
+                          <input
+                            type="text"
+                            class="js-range-slider"
+                            name="age_range"
+                            id="yearsAt"
+                            value=""
+                          />
+                          <p
+                            class="d-flex justify-content-center align-items-center mt-4"
+                          >
+                            <button
+                              type="button"
+                              id="calcPre"
+                              data-target="#myModal-customise"
+                              data-toggle="modal"
+                              class="btn btn-regular btn-regular-border mr-3"
+                            >
+                              Customise</button
+                            ><button
+                              type="button"
+                              id="calcPrem"
+                              class="btn btn-absli-regular-dark-border"
+                              data-target="#myModal"
+                              data-toggle="modal"
+                            >
+                              Calculate Now
+                            </button>
+                          </p>
+                        </div>
+                      </form>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
                 <div
-                  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 order-5 order-md-5 order-lg-5 order-xl-5"
+                  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 order-4 order-md-5 order-lg-5 order-xl-5"
                 >
                   <div class="tab msc-tab" role="tabpanel">
                     <!-- Nav tabs -->
@@ -1503,7 +1586,7 @@
                   </div>
                 </div>
                 <div
-                  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 order-6 order-md-6 order-lg-6 order-xl-6 hide-mobile"
+                  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 order-5 order-md-6 order-lg-6 order-xl-6 hide-mobile"
                 >
                   <div class="container p-0">
                     <div class="row">
@@ -2180,7 +2263,123 @@
         </div>
       </div>
     </footer>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="modal-box">
+            <div
+              class="modal fade"
+              id="myModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="myModalLabel"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h3 class="title">How much you will need</h3>
+                    <div class="investments justify-content-center">
+                      <div class="invest text-left">
+                        <h4>₹<span id="fundRequired">0</span></h4>
+                        <p class="text-capitalize">
+                          Required to fund your child's future
+                        </p>
+                      </div>
+                      <div class="invest text-left">
+                        <h4>₹<span id="monthlySavingsRequired">0</span></h4>
+                        <p class="text-capitalize">Monthly savings required</p>
+                      </div>
+                    </div>
+                    <div class="text-right mt-3">
+                      <button
+                        type="button"
+                        class="btn btn-absli-regular-dark-border"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        Calculate Again
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="modal-box">
+            <div
+              class="modal fade"
+              id="myModal-customise"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="myModalLabel-customise"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h3 class="title">Customise Rates</h3>
+                    <div class="cfp-form">
+                      <div class="container p-0 mb-2">
+                        <div class="row">
+                          <div class="col-6">
+                            <label for="currentCost" class="text-left">Rate of Inflation</label>
+                            <select id="inflation" class="select-css form">
+                              <option value="0.05">5%</option>
+                              <option value="0.06">6%</option>
+                              <option value="0.07">7%</option>
+                              <option value="0.08">8%</option>
+                              <option value="0.09">9%</option>
+                              <option value="0.10" selected>10%</option>
+                              <option value="0.11">11%</option>
+                              <option value="0.12">12%</option>
+                              <option value="0.13">13%</option>
+                              <option value="0.14">14%</option>
+                              <option value="0.15">15%</option>
+                              <option value="0.04">4%</option>
+                            </select>
+                          </div>
+                          <div class="col-6">
+                            <label for="currentCost" class="text-left">Rate of Return</label>
+                            <select id="ror" class="select-css form">
+                              <option value="0.05" selected>5%</option>
+                              <option value="0.06">6%</option>
+                              <option value="0.07">7%</option>
+                              <option value="0.08">8%</option>
+                              <option value="0.09">9%</option>
+                              <option value="0.10">10%</option>
+                              <option value="0.11">11%</option>
+                              <option value="0.12">12%</option>
+                              <option value="0.13">13%</option>
+                              <option value="0.14">14%</option>
+                              <option value="0.15">15%</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-right mt-3">
+                      <button
+                        type="button"
+                        class="btn btn-absli-regular-dark-border"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        Calculate Again
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="assets/js/vendor/modernizr-3.8.0.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
