@@ -413,6 +413,10 @@ window.onload = function () {
     });
 
     btnTab3[0].addEventListener("click", function (e) {
+      mobileNumber1.value = "";
+      fullName1.value = "";
+      email1.value = "";
+      checkbox1.checked = false;
       tabOne(0);
     });
   }
@@ -433,6 +437,10 @@ window.onload = function () {
     });
 
     btnTab3[1].addEventListener("click", function (e) {
+      mobileNumber.value = "";
+      fullName.value = "";
+      email.value = "";
+      checkbox.checked = false;
       tabOne(1);
     });
   }
@@ -483,66 +491,68 @@ window.onload = function () {
   });
 
   /* Message Sending Through API | Start */
-  var getSmsID = document.getElementById("getSmsID");
-  var getFacebookID = document.getElementById("getFacebookID");
-  var getTwitterID = document.getElementById("getTwitterID");
-  var getWhatsappID = document.getElementById("getWhatsappID");
-  var getEmailID = document.getElementById("getEmailID");
-  var getFacebookID_Mobile = document.getElementById("getFacebookID_Mob");
-  var getTwitterID_Mobile = document.getElementById("getTwitterID_Mob");
-  var getWhatsappID_Mobile = document.getElementById("getWhatsappID_Mob");
-  var smsText = "This is text message";
-  var facebookText = "This is facebookText";
-  var twitterText = "This is twitterText";
-  var whatsappText = "This is whatsappText";
-  var emailSubject = "This is emailSubject";
-  var emailText = "This is emailText";
-  var referralUrl = "www.google.com";
+  if (document.getElementById("getSmsID")) {
+    var getSmsID = document.getElementById("getSmsID");
+    var getFacebookID = document.getElementById("getFacebookID");
+    var getTwitterID = document.getElementById("getTwitterID");
+    var getWhatsappID = document.getElementById("getWhatsappID");
+    var getEmailID = document.getElementById("getEmailID");
+    var getFacebookID_Mobile = document.getElementById("getFacebookID_Mob");
+    var getTwitterID_Mobile = document.getElementById("getTwitterID_Mob");
+    var getWhatsappID_Mobile = document.getElementById("getWhatsappID_Mob");
+    var smsText = "This is text message";
+    var facebookText = "This is facebookText";
+    var twitterText = "This is twitterText";
+    var whatsappText = "This is whatsappText";
+    var emailSubject = "This is emailSubject";
+    var emailText = "This is emailText";
+    var referralUrl = "www.google.com";
 
-  if (/MacIntel|iPhone|iPad|iPod/i.test(navigator.platform)) {
-    getSmsID.setAttribute(
-      "href",
-      "sms:&body=" + smsText + encodeURI(referralUrl)
-    );
-  } else {
-    getSmsID.setAttribute(
-      "href",
-      "sms:?body=" + smsText + encodeURI(referralUrl)
-    );
+    if (/MacIntel|iPhone|iPad|iPod/i.test(navigator.platform)) {
+      getSmsID.setAttribute(
+        "href",
+        "sms:&body=" + smsText + encodeURI(referralUrl)
+      );
+    } else {
+      getSmsID.setAttribute(
+        "href",
+        "sms:?body=" + smsText + encodeURI(referralUrl)
+      );
+    }
+
+    var facebookLink =
+      "https://www.facebook.com/sharer.php?u=" +
+      encodeURI(referralUrl) +
+      "&quote=" +
+      encodeURI(facebookText) +
+      "%0a%0a" +
+      encodeURI(referralUrl);
+    getFacebookID.setAttribute("href", facebookLink);
+    getFacebookID_Mobile.setAttribute("href", facebookLink);
+
+    var twitterLink =
+      "http://twitter.com/intent/tweet?text=" +
+      twitterText +
+      encodeURI(referralUrl);
+    getTwitterID.setAttribute("href", twitterLink);
+    getTwitterID_Mobile.setAttribute("href", twitterLink);
+
+    var whatsappLink =
+      "https://api.whatsapp.com/send?text=" +
+      encodeURI(whatsappText) +
+      "%0a%0a" +
+      encodeURI(referralUrl);
+    getWhatsappID.setAttribute("href", whatsappLink);
+    getWhatsappID_Mobile.setAttribute("href", whatsappLink);
+
+    var emailLink =
+      "mailto:?subject=" +
+      emailSubject +
+      "&body=" +
+      emailText +
+      encodeURI(referralUrl);
+    getEmailID.setAttribute("href", emailLink);
   }
-
-  var facebookLink =
-    "https://www.facebook.com/sharer.php?u=" +
-    encodeURI(referralUrl) +
-    "&quote=" +
-    encodeURI(facebookText) +
-    "%0a%0a" +
-    encodeURI(referralUrl);
-  getFacebookID.setAttribute("href", facebookLink);
-  getFacebookID_Mobile.setAttribute("href", facebookLink);
-
-  var twitterLink =
-    "http://twitter.com/intent/tweet?text=" +
-    twitterText +
-    encodeURI(referralUrl);
-  getTwitterID.setAttribute("href", twitterLink);
-  getTwitterID_Mobile.setAttribute("href", twitterLink);
-
-  var whatsappLink =
-    "https://api.whatsapp.com/send?text=" +
-    encodeURI(whatsappText) +
-    "%0a%0a" +
-    encodeURI(referralUrl);
-  getWhatsappID.setAttribute("href", whatsappLink);
-  getWhatsappID_Mobile.setAttribute("href", whatsappLink);
-
-  var emailLink =
-    "mailto:?subject=" +
-    emailSubject +
-    "&body=" +
-    emailText +
-    encodeURI(referralUrl);
-  getEmailID.setAttribute("href", emailLink);
   /* Message Sending Through API | End */
 
   // Calculator | Start
