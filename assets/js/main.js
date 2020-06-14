@@ -351,69 +351,71 @@ window.onload = function () {
     }
   }
 
-  formActiveDsk[0].addEventListener("click", function (e) {
-    tabOne(1);
-  });
+  if (btnTab1.length > 0) {
+    formActiveDsk[0].addEventListener("click", function (e) {
+      tabOne(1);
+    });
 
-  formActiveDsk[1].addEventListener("click", function (e) {
-    var valid = validateFormTab1();
-    if (valid == true) {
+    formActiveDsk[1].addEventListener("click", function (e) {
+      var valid = validateFormTab1();
+      if (valid == true) {
+        tabTwo(1);
+      }
+    });
+
+    formActiveDsk[2].addEventListener("click", function (e) {
+      tabOne(1);
+    });
+
+    formActiveDsk[3].addEventListener("click", function (e) {
       tabTwo(1);
-    }
-  });
+    });
 
-  formActiveDsk[2].addEventListener("click", function (e) {
-    tabOne(1);
-  });
+    formActiveDsk[4].addEventListener("click", function (e) {
+      tabOne(1);
+    });
 
-  formActiveDsk[3].addEventListener("click", function (e) {
-    tabTwo(1);
-  });
+    formActiveMob[0].addEventListener("click", function (e) {
+      tabOne(0);
+    });
 
-  formActiveDsk[4].addEventListener("click", function (e) {
-    tabOne(1);
-  });
+    formActiveMob[1].addEventListener("click", function (e) {
+      var valid = validateFormTab1();
+      if (valid == true) {
+        tabTwo(0);
+      }
+    });
 
-  formActiveMob[0].addEventListener("click", function (e) {
-    tabOne(0);
-  });
+    formActiveMob[2].addEventListener("click", function (e) {
+      tabOne(0);
+    });
 
-  formActiveMob[1].addEventListener("click", function (e) {
-    var valid = validateFormTab1();
-    if (valid == true) {
+    formActiveMob[3].addEventListener("click", function (e) {
       tabTwo(0);
-    }
-  });
+    });
 
-  formActiveMob[2].addEventListener("click", function (e) {
-    tabOne(0);
-  });
+    formActiveMob[4].addEventListener("click", function (e) {
+      tabOne(0);
+    });
 
-  formActiveMob[3].addEventListener("click", function (e) {
-    tabTwo(0);
-  });
+    btnTab1[0].addEventListener("click", function (e) {
+      var valid = validateFormTab1();
+      if (valid == true) {
+        tabTwo(0);
+      }
+    });
 
-  formActiveMob[4].addEventListener("click", function (e) {
-    tabOne(0);
-  });
+    btnTab2[0].addEventListener("click", function (e) {
+      var valid = validateFormTab2();
+      if (valid == true) {
+        tabThree(0);
+      }
+    });
 
-  btnTab1[0].addEventListener("click", function (e) {
-    var valid = validateFormTab1();
-    if (valid == true) {
-      tabTwo(0);
-    }
-  });
-
-  btnTab2[0].addEventListener("click", function (e) {
-    var valid = validateFormTab2();
-    if (valid == true) {
-      tabThree(0);
-    }
-  });
-
-  btnTab3[0].addEventListener("click", function (e) {
-    tabOne(0);
-  });
+    btnTab3[0].addEventListener("click", function (e) {
+      tabOne(0);
+    });
+  }
 
   if (btnTab1.length == 2) {
     btnTab1[1].addEventListener("click", function (e) {
@@ -455,11 +457,93 @@ window.onload = function () {
   });
   /* Window Reload | End */
 
+  /* Read More | Starts */
+  if (document.getElementById("moreBtn")) {
+    document.getElementById("moreBtn").addEventListener("click", function (e) {
+      if (document.getElementById("more").classList.contains("read-more-acc")) {
+        document.getElementById("more").classList.remove("read-more-acc");
+        document.getElementById("more").classList.add("read-more-acc-opened");
+        e.target.innerHTML = "Read Less";
+      } else {
+        document
+          .getElementById("more")
+          .classList.remove("read-more-acc-opened");
+        document.getElementById("more").classList.add("read-more-acc");
+        e.target.innerHTML = "Read More";
+      }
+    });
+  }
+
+  /* Read More | End */
+
   // Nav Pill
   $("#msc-tabs a").on("click", function (e) {
     e.preventDefault();
     $(this).parent().addClass("active").siblings().removeClass("active");
   });
+
+  /* Message Sending Through API | Start */
+  var getSmsID = document.getElementById("getSmsID");
+  var getFacebookID = document.getElementById("getFacebookID");
+  var getTwitterID = document.getElementById("getTwitterID");
+  var getWhatsappID = document.getElementById("getWhatsappID");
+  var getEmailID = document.getElementById("getEmailID");
+  var getFacebookID_Mobile = document.getElementById("getFacebookID_Mob");
+  var getTwitterID_Mobile = document.getElementById("getTwitterID_Mob");
+  var getWhatsappID_Mobile = document.getElementById("getWhatsappID_Mob");
+  var smsText = "This is text message";
+  var facebookText = "This is facebookText";
+  var twitterText = "This is twitterText";
+  var whatsappText = "This is whatsappText";
+  var emailSubject = "This is emailSubject";
+  var emailText = "This is emailText";
+  var referralUrl = "www.google.com";
+
+  if (/MacIntel|iPhone|iPad|iPod/i.test(navigator.platform)) {
+    getSmsID.setAttribute(
+      "href",
+      "sms:&body=" + smsText + encodeURI(referralUrl)
+    );
+  } else {
+    getSmsID.setAttribute(
+      "href",
+      "sms:?body=" + smsText + encodeURI(referralUrl)
+    );
+  }
+
+  var facebookLink =
+    "https://www.facebook.com/sharer.php?u=" +
+    encodeURI(referralUrl) +
+    "&quote=" +
+    encodeURI(facebookText) +
+    "%0a%0a" +
+    encodeURI(referralUrl);
+  getFacebookID.setAttribute("href", facebookLink);
+  getFacebookID_Mobile.setAttribute("href", facebookLink);
+
+  var twitterLink =
+    "http://twitter.com/intent/tweet?text=" +
+    twitterText +
+    encodeURI(referralUrl);
+  getTwitterID.setAttribute("href", twitterLink);
+  getTwitterID_Mobile.setAttribute("href", twitterLink);
+
+  var whatsappLink =
+    "https://api.whatsapp.com/send?text=" +
+    encodeURI(whatsappText) +
+    "%0a%0a" +
+    encodeURI(referralUrl);
+  getWhatsappID.setAttribute("href", whatsappLink);
+  getWhatsappID_Mobile.setAttribute("href", whatsappLink);
+
+  var emailLink =
+    "mailto:?subject=" +
+    emailSubject +
+    "&body=" +
+    emailText +
+    encodeURI(referralUrl);
+  getEmailID.setAttribute("href", emailLink);
+  /* Message Sending Through API | End */
 
   // Calculator | Start
   // current cost of education for your child
