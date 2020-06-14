@@ -1721,7 +1721,7 @@
                           <div class="container p-0 mb-2">
                             <div class="row">
                               <div class="col-6">
-                                <label for="currentCost">Plan for a goal</label>
+                                <label for="goal">Plan for a goal</label>
                                 <select class="select-css form" id="goal">
                                   <option value="none" selected disabled
                                     >Select a Goal</option
@@ -1731,42 +1731,50 @@
                                 </select>
                               </div>
                               <div class="col-6 d-none" id="education">
-                                <label for="currentCost">Qualification</label>
+                                <label for="profession">Qualification</label>
                                 <select class="select-css form" id="profession">
                                   <option value="none" selected disabled
                                     >Choose a Profession</option
                                   >
-                                  <option value="Accountant">Accountant</option>
-                                  <option value="ArmedForces"
-                                    >Armed Forces</option
-                                  >
-                                  <option value="Artist">Artist</option>
-                                  <option value="Chef">Chef</option>
-                                  <option value="Doctor">Doctor</option>
-                                  <option value="Engineer">Engineer</option>
-                                  <option value="FashionDesigner"
-                                    >Fashion Designer</option
-                                  >
-                                  <option value="Lawyer">Lawyer</option>
-                                  <option value="Linguist">Linguist</option>
-                                  <option value="Manager">Manager</option>
-                                  <option value="MediaProfessional"
-                                    >Media Professional</option
-                                  >
-                                  <option value="Pilot">Pilot</option>
-                                  <option value="Scientist">Scientist</option>
-                                  <option value="SocialScientist"
-                                    >Social Scientist</option
-                                  >
-                                  <option value="SportsPerson"
-                                    >Sports Person</option
-                                  >
-                                  <option value="Teacher">Teacher</option>
+                                  <optgroup>
+                                    <option value="Actor">Actor</option>
+                                    <option value="Architect">Architect</option>
+                                    <option value="Astronomer"
+                                      >Astronomer</option
+                                    >
+                                    <option value="ComputerScienceEngineer"
+                                      >Computer Science Engineer</option
+                                    >
+                                    <option value="CharteredAccountant"
+                                      >Chartered Account</option
+                                    >
+                                    <option value="Doctor">Doctor</option>
+                                    <option value="ITStrategist"
+                                      >IT Strategist</option
+                                    >
+                                    <option value="EventManager"
+                                      >Event Manager</option
+                                    >
+                                    <option value="Lawyer">Lawyer</option>
+                                    <option value="Scientist">Scientist</option>
+                                    <option value="Sociologist"
+                                      >Sociologist</option
+                                    >
+                                    <option value="SportsCoach"
+                                      >Sports Coach</option
+                                    >
+                                    <option value="UXDesigner"
+                                      >UX Designer</option
+                                    >
+                                  </optgroup>
+                                  <optgroup>
+                                    <option value="Other">Other</option>
+                                  </optgroup>
                                 </select>
                               </div>
                               <div class="col-12 mt-2">
                                 <label for="currentCost"
-                                  >Current Cost of Affairs</label
+                                  >Current Cost of Affairs (in Lakhs ₹)</label
                                 >
                                 <div class="input-group">
                                   <div class="input-group-prepend">
@@ -1794,7 +1802,7 @@
                           </div> -->
                           <input
                             type="text"
-                            class="js-range-slider"
+                            class="js-range-slider form"
                             name="age_range"
                             id="yearsAt"
                             value=""
@@ -2718,7 +2726,9 @@
                     <h3 class="title">How much you will need</h3>
                     <div class="investments justify-content-center">
                       <div class="invest text-left">
-                        <h4>₹<span id="fundRequired">0</span></h4>
+                        <h4 class="text-capitalize">
+                          ₹<span id="fundRequired">0</span><small>Lakhs</small>
+                        </h4>
                         <p class="text-capitalize">
                           Required to fund your child's future
                         </p>
@@ -2780,7 +2790,6 @@
                               <option value="0.13">13%</option>
                               <option value="0.14">14%</option>
                               <option value="0.15">15%</option>
-                              <option value="0.04">4%</option>
                             </select>
                           </div>
                           <div class="col-6">

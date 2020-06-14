@@ -140,8 +140,11 @@ window.onload = function () {
     max: 20,
     grid: true,
     max_postfix: "+",
-    prefix: "Age: ",
-    postfix: " years",
+    // prefix: "Age: ",
+    // postfix: " years",
+    onChange: function (data) {
+      userInputs["yearsAt"] = data.from_pretty;
+    },
   });
 
   function winWidth() {
@@ -558,29 +561,26 @@ window.onload = function () {
   // Calculator | Start
   // current cost of education for your child
   var currentCostOfEducation = {
-    Accountant: 100000,
-    ArmedForces: 200000,
-    Artist: 1200000,
-    Chef: 800000,
-    Doctor: 3000000,
-    Engineer: 400000,
-    FashionDesigner: 600000,
-    ITProfessional: 1500000,
-    Lawyer: 800000,
-    Linguist: 200000,
-    Manager: 1500000,
-    MediaProfessional: 500000,
-    Pilot: 3000000,
-    Scientist: 200000,
-    SocialScientist: 200000,
-    SportsPerson: 1500000,
-    Teacher: 200000,
+    Architect: 5.25,
+    Scientist: 1.01,
+    Astronomer: 1.5,
+    ComputerScienceEngineer: 3.65,
+    CharteredAccountant: 0.7,
+    ITStrategist: 3.05,
+    Actor: 1.1,
+    EventManager: 6.1,
+    Sociologist: 2.57,
+    UXDesigner: 10.15,
+    Doctor: 7.55,
+    Lawyer: 7.75,
+    SportsCoach: 1.01,
+    Other: 0,
   };
 
   // current cost of marriage for your child
   var currentCostOfMarriage = {
-    Son: 1000000,
-    Daughter: 1000000,
+    Son: 20,
+    Daughter: 20,
   };
 
   // form inputs
@@ -615,12 +615,8 @@ window.onload = function () {
     var annualisedReturn =
       parseFloat(userInputs.ror) / (1 + parseFloat(userInputs.ror));
     var compounding = 12 * (1 - Math.pow(1 - annualisedReturn, 1 / 12));
-
-    //var yearsLeft = userInputs.yearsAt - childAge;
-
     var yearsLeft = parseInt(userInputs.yearsAt);
     var amountSaved = parseInt(userInputs.amountSaved);
-
     var timeWeightedROR =
       (Math.pow(1 + parseFloat(userInputs.ror), yearsLeft) - 1) / compounding;
     var annualisedMonthlySavings = parseInt(userInputs.monthlySavings) * 12;
@@ -635,50 +631,50 @@ window.onload = function () {
     var monthlySavingNeeded = amountNeeded / timeWeightedROR / 12;
     var howMuchToSave =
       monthlySavingNeeded > 0 ? Math.round(monthlySavingNeeded, 4) : 0;
-
     document.getElementById("fundRequired").innerText = isNaN(totalAmtRequired)
       ? 0
-      : totalAmtRequired;
+      : (totalAmtRequired / 100000).toFixed(2);
     document.getElementById("monthlySavingsRequired").innerText = howMuchToSave;
   }
 
-  document.querySelectorAll(".form").forEach(function (each) {
-    each.addEventListener("change", function (e) {
-      userInputs[e.target.id] = e.target.value;
+  document.getElementById("goal").addEventListener("change", function (e) {
+    if (e.target.value == "Education") {
+      document.getElementById("education").classList.contains("d-none")
+        ? document.getElementById("education").classList.remove("d-none")
+        : "";
+      document.getElementById("scenario").value = "";
+    } else if (e.target.value == "Marriage") {
+      document.getElementById("education").classList.contains("d-none")
+        ? ""
+        : document.getElementById("education").classList.add("d-none");
+      document.getElementById("scenario").value = currentCostOfMarriage.Son;
+      userInputs.scenario = currentCostOfMarriage.Son * 100000;
+    }
+  });
 
-      if (e.target.type == "range") {
-        range(e.target);
-      }
-
-      if (e.target.id == "goal") {
-        if (e.target.value == "Education") {
-          document.getElementById("education").classList.contains("d-none")
-            ? document.getElementById("education").classList.remove("d-none")
-            : "";
-          document.getElementById("scenario").value = "";
-        } else if (e.target.value == "Marriage") {
-          document.getElementById("education").classList.contains("d-none")
-            ? ""
-            : document.getElementById("education").classList.add("d-none");
-          document.getElementById("scenario").value = currentCostOfMarriage.Son;
-          userInputs.scenario = currentCostOfMarriage.Son;
-        }
-      }
-
-      if (e.target.id == "profession") {
-        document.getElementById("scenario").value =
-          currentCostOfEducation[e.target.value];
-        userInputs.scenario = currentCostOfEducation[e.target.value];
-      }
-
-      compute();
-
-      //if (e.target.id == "dob") {
-      //    childAge = Math.floor(dob());
-      //    document.getElementById("yearsAt").setAttribute("min", childAge);
-      //    document.getElementById("yearsAt").value = childAge;
-      //    range(document.getElementById("yearsAt"));
-      //}
+  document
+    .getElementById("profession")
+    .addEventListener("change", function (e) {
+      document.getElementById("scenario").value =
+        currentCostOfEducation[e.target.value];
+      userInputs.scenario = currentCostOfEducation[e.target.value] * 100000;
     });
+
+  for (var i = 0; i < document.querySelectorAll(".form").length; i++) {
+    document
+      .querySelectorAll(".form")
+      [i].addEventListener("change", function (e) {
+        userInputs[e.target.id] = e.target.value;
+      });
+  }
+
+  // document.querySelectorAll(".form").forEach(function (each) {
+  //   each.addEventListener("change", function (e) {
+  //     userInputs[e.target.id] = e.target.value;
+  //   });
+  // });
+
+  document.getElementById("calcPrem").addEventListener("click", function (e) {
+    compute();
   });
 };
