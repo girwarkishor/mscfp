@@ -720,6 +720,7 @@ textarea {
     linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("../img/child-plane-1.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   box-shadow: -8px -8px 16px #ffffff, 8px 8px 16px rgba(208, 208, 208, 0.5);
   border-radius: 10px;
@@ -768,6 +769,18 @@ textarea {
   line-height: 110%;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 1);
+}
+
+.read-more-acc {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease-in;
+}
+
+.read-more-acc-opened {
+  overflow: hidden;
+  height: auto;
+  transition: max-height 0.4s ease-in;
 }
 
 .video-container .slick-list {
@@ -1554,15 +1567,20 @@ textarea {
     left: 0px;
   }
 
-  .hero-img {
+  /* .hero-img {
     position: relative;
   }
 
   .hero-img h1 {
-    position: absolute;
     color: #ffffff;
     left: 10%;
     bottom: 10%;
+  } */
+
+  .hero-img h1 {
+    color: #c7222a;
+    margin-top: 2rem;
+    margin-left: 9%;
   }
 
   .child-benefits .benefits-content {
@@ -1616,7 +1634,7 @@ textarea {
     transform: translate(-300%, 0);
   }
 
-  .hero-img {
+  /* .hero-img {
     position: relative;
   }
 
@@ -1625,6 +1643,12 @@ textarea {
     color: #ffffff;
     left: 10%;
     bottom: 10%;
+  } */
+
+  .hero-img h1 {
+    color: #c7222a;
+    margin-top: 2rem;
+    margin-left: 9%;
   }
 
   .child-benefits .benefits-content {
@@ -1682,7 +1706,7 @@ textarea {
     transform: translate(-300%, 0);
   }
 
-  .hero-img {
+  /* .hero-img {
     position: relative;
   }
 
@@ -1691,6 +1715,12 @@ textarea {
     color: #ffffff;
     left: 10%;
     bottom: 10%;
+  } */
+
+  .hero-img h1 {
+    color: #c7222a;
+    margin-top: 2rem;
+    margin-left: 9%;
   }
 
   .child-benefits .benefits-content {
@@ -1748,7 +1778,7 @@ textarea {
     transform: translate(-300%, 0);
   }
 
-  .hero-img {
+  /* .hero-img {
     position: relative;
   }
 
@@ -1757,6 +1787,12 @@ textarea {
     color: #ffffff;
     left: 10%;
     bottom: 10%;
+  } */
+
+  .hero-img h1 {
+    color: #c7222a;
+    margin-top: 2rem;
+    margin-left: 9%;
   }
 
   .child-benefits .benefits-content {
@@ -1812,6 +1848,8 @@ textarea {
     left: 50% !important;
     transform: translate(-300%, 0);
   }
+
+  /* Card Accordion */
 
   .card--accordion-content {
     max-height: 97px;
