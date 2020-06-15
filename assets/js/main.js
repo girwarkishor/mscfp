@@ -148,35 +148,24 @@ window.onload = function () {
     return queryStringList[param];
   }
 
-  if (document.getElementById("bWDsk")) {
-    if (getQueryStringParam("coupon")) {
-      var absliBwCup = getQueryStringParam("coupon");
-      document
-        .getElementById("bWDsk")
-        .setAttribute(
-          "href",
-          "https://brainwonders.in/adityabirla-test/" + absliBwCup
-        );
-    } else {
-      document
-        .getElementById("bWDsk")
-        .setAttribute("href", "https://brainwonders.in/adityabirla-test/absli");
-    }
-  }
-
-  if (document.getElementById("bWMob")) {
-    if (getQueryStringParam("coupon")) {
-      var absliBwCup = getQueryStringParam("coupon");
-      document
-        .getElementById("bWMob")
-        .setAttribute(
-          "href",
-          "https://brainwonders.in/adityabirla-test/" + absliBwCup
-        );
-    } else {
-      document
-        .getElementById("bWMob")
-        .setAttribute("href", "https://brainwonders.in/adityabirla-test/absli");
+  if (document.getElementsByClassName("bWMob").length > 0) {
+    for (var i = 0; i < document.getElementsByClassName("bWMob").length; i++) {
+      if (getQueryStringParam("coupon")) {
+        var absliBwCup = getQueryStringParam("coupon");
+        document
+          .getElementsByClassName("bWMob")
+          [i].setAttribute(
+            "href",
+            "https://brainwonders.in/adityabirla-test/" + absliBwCup
+          );
+      } else {
+        document
+          .getElementsByClassName("bWMob")
+          [i].setAttribute(
+            "href",
+            "https://brainwonders.in/adityabirla-test/absli"
+          );
+      }
     }
   }
 
