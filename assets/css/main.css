@@ -728,6 +728,30 @@ textarea {
   padding: 1em;
 }
 
+.video-content.kv1 {
+  background: linear-gradient(
+      0.23deg,
+      #7c7c7b 0.76%,
+      rgba(124, 124, 123, 0) 67.56%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://i.ytimg.com/vi/rIFZModp1Ts/hqdefault.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.video-content.pv1 {
+  background: linear-gradient(
+      0.23deg,
+      #7c7c7b 0.76%,
+      rgba(124, 124, 123, 0) 67.56%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://i.ytimg.com/vi/wc8i5KzwtZg/hqdefault.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .video-content:focus {
   outline: none !important;
 }
