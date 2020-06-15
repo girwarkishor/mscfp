@@ -134,6 +134,55 @@ window.onload = function () {
   var formActiveMob = document.querySelectorAll(".mob .form-active");
   var deskFormWidth = $(window).width();
 
+  /* Coupon Code | START */
+  function getQueryStringParam(param) {
+    var url = window.location.toString();
+    url.match(/\?(.+)$/);
+    var params = RegExp.$1;
+    params = params.split("&");
+    var queryStringList = {};
+    for (var i = 0; i < params.length; i++) {
+      var tmp = params[i].split("=");
+      queryStringList[tmp[0]] = unescape(tmp[1]);
+    }
+    return queryStringList[param];
+  }
+
+  if (document.getElementById("bWDsk")) {
+    if (getQueryStringParam("coupon")) {
+      var absliBwCup = getQueryStringParam("coupon");
+      document
+        .getElementById("bWDsk")
+        .setAttribute(
+          "href",
+          "https://brainwonders.in/adityabirla-test/" + absliBwCup
+        );
+    } else {
+      document
+        .getElementById("bWDsk")
+        .setAttribute("href", "https://brainwonders.in/adityabirla-test/absli");
+    }
+  }
+
+  if (document.getElementById("bWMob")) {
+    if (getQueryStringParam("coupon")) {
+      var absliBwCup = getQueryStringParam("coupon");
+      document
+        .getElementById("bWMob")
+        .setAttribute(
+          "href",
+          "https://brainwonders.in/adityabirla-test/" + absliBwCup
+        );
+    } else {
+      document
+        .getElementById("bWMob")
+        .setAttribute("href", "https://brainwonders.in/adityabirla-test/absli");
+    }
+  }
+
+  /* Coupon Code | END */
+
+  /* Range Slider | START  */
   $(".js-range-slider").ionRangeSlider({
     skin: "round",
     min: 0,
@@ -146,6 +195,7 @@ window.onload = function () {
       userInputs["yearsAt"] = data.from_pretty;
     },
   });
+  /* Range Slider | END  */
 
   function winWidth() {
     return deskFormWidth;
@@ -637,35 +687,37 @@ window.onload = function () {
     document.getElementById("monthlySavingsRequired").innerText = howMuchToSave;
   }
 
-  document.getElementById("goal").addEventListener("change", function (e) {
-    if (e.target.value == "Education") {
-      document.getElementById("education").classList.contains("d-none")
-        ? document.getElementById("education").classList.remove("d-none")
-        : "";
-      document.getElementById("scenario").value = "";
-    } else if (e.target.value == "Marriage") {
-      document.getElementById("education").classList.contains("d-none")
-        ? ""
-        : document.getElementById("education").classList.add("d-none");
-      document.getElementById("scenario").value = currentCostOfMarriage.Son;
-      userInputs.scenario = currentCostOfMarriage.Son * 100000;
-    }
-  });
-
-  document
-    .getElementById("profession")
-    .addEventListener("change", function (e) {
-      document.getElementById("scenario").value =
-        currentCostOfEducation[e.target.value];
-      userInputs.scenario = currentCostOfEducation[e.target.value] * 100000;
+  if (document.getElementById("goal")) {
+    document.getElementById("goal").addEventListener("change", function (e) {
+      if (e.target.value == "Education") {
+        document.getElementById("education").classList.contains("d-none")
+          ? document.getElementById("education").classList.remove("d-none")
+          : "";
+        document.getElementById("scenario").value = "";
+      } else if (e.target.value == "Marriage") {
+        document.getElementById("education").classList.contains("d-none")
+          ? ""
+          : document.getElementById("education").classList.add("d-none");
+        document.getElementById("scenario").value = currentCostOfMarriage.Son;
+        userInputs.scenario = currentCostOfMarriage.Son * 100000;
+      }
     });
 
-  for (var i = 0; i < document.querySelectorAll(".form").length; i++) {
     document
-      .querySelectorAll(".form")
-      [i].addEventListener("change", function (e) {
-        userInputs[e.target.id] = e.target.value;
+      .getElementById("profession")
+      .addEventListener("change", function (e) {
+        document.getElementById("scenario").value =
+          currentCostOfEducation[e.target.value];
+        userInputs.scenario = currentCostOfEducation[e.target.value] * 100000;
       });
+
+    for (var i = 0; i < document.querySelectorAll(".form").length; i++) {
+      document
+        .querySelectorAll(".form")
+        [i].addEventListener("change", function (e) {
+          userInputs[e.target.id] = e.target.value;
+        });
+    }
   }
 
   // document.querySelectorAll(".form").forEach(function (each) {
@@ -674,7 +726,9 @@ window.onload = function () {
   //   });
   // });
 
-  document.getElementById("calcPrem").addEventListener("click", function (e) {
-    compute();
-  });
+  if (document.getElementById("calcPrem")) {
+    document.getElementById("calcPrem").addEventListener("click", function (e) {
+      compute();
+    });
+  }
 };
