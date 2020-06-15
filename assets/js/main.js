@@ -114,6 +114,8 @@ $(document).ready(function () {
   });
 });
 
+window.DOMContentLoaded = function () {};
+
 window.onload = function () {
   var mobileNumber = document.getElementById("mobileNumber");
   var fullName = document.getElementById("fullName");
@@ -613,6 +615,7 @@ window.onload = function () {
     Doctor: 7.55,
     Lawyer: 7.75,
     SportsCoach: 1.01,
+    MBA: 2.3,
     Other: 0,
   };
 
