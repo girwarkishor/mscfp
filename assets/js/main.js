@@ -117,23 +117,8 @@ $(document).ready(function () {
 window.DOMContentLoaded = function () {};
 
 window.onload = function () {
-  var mobileNumber = document.getElementById("mobileNumber");
-  var fullName = document.getElementById("fullName");
-  var email = document.getElementById("email");
-  var checkbox = document.getElementById("customCheck1");
-  var mobileNumber1 = document.getElementById("mobileNumber1");
-  var fullName1 = document.getElementById("fullName1");
-  var email1 = document.getElementById("email1");
-  var checkbox1 = document.getElementById("customCheck2");
-  var btnTab1 = document.getElementsByClassName("tab1");
-  var btnTab2 = document.getElementsByClassName("tab2");
-  var btnTab3 = document.getElementsByClassName("tab3");
-  var formTab1 = document.getElementsByClassName("form-tab1");
-  var formTab2 = document.getElementsByClassName("form-tab2");
-  var formTab3 = document.getElementsByClassName("form-tab3");
   var checkSidebar = document.getElementsByClassName("sidebar");
-  var formActiveDsk = document.querySelectorAll(".dsk .form-active");
-  var formActiveMob = document.querySelectorAll(".mob .form-active");
+  var childForm = document.getElementsByClassName("cfap_frm");
   var deskFormWidth = $(window).width();
 
   /* Coupon Code | START */
@@ -201,6 +186,161 @@ window.onload = function () {
     });
   }
 
+  /* Dynamic From Generation | Start */
+  for (var i = 0; i < childForm.length; i++) {
+    if (childForm) {
+      var str = "";
+      str += '<form class="cfp-form" runat="server">';
+      str += '<div class="form-tab1 mob">';
+      str += '<div class="card msc-card msc-card-border-absli">';
+      str += '<div class="card-body">';
+      str +=
+        '<h4 class="card-title">Request a call back <span><img src="/assets/img/arrow-down-white.png" alt=""/></span></h4>';
+      str +=
+        '<p class="card-text">Like what you see & want a relationship manager to get in touch with you to explain how you can make the most of this plan?<br /><br />Provide us a few details & we\'ll get in touch with u shortly</p>';
+      str += "<div>";
+      str += '<label for="mobileNumber">Mobile Number</label>';
+      str += '<div class="input-group">';
+      str += '<div class="input-group-prepend">';
+      str += '<span class="input-group-text">+91</span>';
+      str += "</div>";
+      str +=
+        '<input type="text" class="form-control" placeholder="Enter mobile number" id="mobileNumber" maxlength="10" runat="server"/>';
+      str += "</div>";
+      str += '<div class="custom-control custom-checkbox mt-4">';
+      str +=
+        '<input type="checkbox" class="custom-control-input" id="customCheck1" runat="server"/>';
+      str +=
+        '<label class="custom-control-label" for="customCheck1">I agree to the Terms of Usage and Privacy Policy and authorize Aditya Birla Sun Life Insurance Company Limited and its associates to Call/SMS/Email/Whatsapp me. This would mean we would contact you even if you are registered on any Do Not Disturb list</label>';
+      str += '<div class="checkbox-arrow">';
+      str += '<img src="/assets/img/down-arrow.png" alt=""/>';
+      str += "</div>";
+      str += '<div class="read-more-down">&nbsp;</div>';
+      str += "</div>";
+      str += '<div class="req-form-button">';
+      str += '<div class="req-points">';
+      str += '<div class="form-active show"></div>';
+      str += '<div class="form-active"></div>';
+      str += "</div>";
+      str +=
+        '<button type="button" class="btn btn-absli-regular tab1 d-flex align-items-center justify-content-between">Proceed';
+      str +=
+        '<svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">';
+      str +=
+        '<path d="M0.936035 0.970947L5.33138 5.3663L0.936034 9.76164" stroke="white" stroke-width="1.46512" stroke-linecap="round" stroke-linejoin="round"/>';
+      str += "</svg>";
+      str += "</button>";
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += '<div class="form-tab2 mob d-none">';
+      str += '<div class="card msc-card msc-card-border-absli">';
+      str += '<div class="card-body">';
+      str += '<h4 class="card-title">Request a call back</h4>';
+      str +=
+        '<p class="card-text">Help us connect you with a relationship manager near you</p>';
+      str += "<div>";
+      str += '<label for="fullName">Full Name</label>';
+      str +=
+        '<input type="text" class="form-control" placeholder="Enter your name" id="fullName" maxlength="50" runat="server"/>';
+      str += '<label for="email">Email Address</label>';
+      str +=
+        '<input type="email" class="form-control" placeholder="Enter email" id="email" maxlength="50" runat="server"/>';
+      str += '<div class="req-form-button">';
+      str += '<div class="req-points">';
+      str += '<div class="form-active"></div>';
+      str += '<div class="form-active"></div>';
+      str += "</div>";
+      str +=
+        '<button type="button" class="btn btn-absli-regular tab2 d-flex align-items-center justify-content-between">Proceed';
+      str +=
+        '<svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">';
+      str +=
+        '<path d="M0.936035 0.970947L5.33138 5.3663L0.936034 9.76164" stroke="white" stroke-width="1.46512" stroke-linecap="round" stroke-linejoin="round"/>';
+      str += "</svg>";
+      str += "</button>";
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += '<div class="form-tab3 mob d-none">';
+      str += '<div class="card msc-card msc-card-border-absli">';
+      str += '<div class="card-body">';
+      str += '<h4 class="card-title">Request a call back</h4>';
+      str +=
+        '<p class="card-text">Thank You for providing us with your details.<br /><br />We will be in touch with you shortly.</p>';
+      str += "<div>";
+      str += '<div class="d-flex justify-content-center align-items-center">';
+      str +=
+        '<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">';
+      str += '<g filter="url(#filter0_dd)">';
+      str +=
+        '<rect x="25" y="25" width="100" height="100" rx="50" fill="#D68E87"/>';
+      str +=
+        '<path d="M54.5 76.0769L67.7632 89L96.5 61" stroke="white" stroke-width="3"/>';
+      str += "</g>";
+      str += "<defs>";
+      str +=
+        '<filter id="filter0_dd" x="0.428571" y="0.428571" width="149.143" height="149.143" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">';
+      str += '<feFlood flood-opacity="0" result="BackgroundImageFix"/>';
+      str +=
+        '<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>';
+      str += '<feOffset dx="-8.19048" dy="-8.19048"/>';
+      str += '<feGaussianBlur stdDeviation="8.19048"/>';
+      str +=
+        '<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>';
+      str +=
+        '<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>';
+      str +=
+        '<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>';
+      str += '<feOffset dx="8.19048" dy="8.19048" />';
+      str += '<feGaussianBlur stdDeviation="8.19048"/>';
+      str +=
+        '<feColorMatrix type="matrix" values="0 0 0 0 0.815686 0 0 0 0 0.815686 0 0 0 0 0.815686 0 0 0 0.5 0"/>';
+      str +=
+        '<feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>';
+      str +=
+        '<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>';
+      str += "</filter>";
+      str += "</defs>";
+      str += "</svg>";
+      str += "</div>";
+      str += '<div class="req-form-button">';
+      str += '<div class="req-points">';
+      str += '<div class="form-active"></div>';
+      str += "</div>";
+      str +=
+        '<button type="button" class="btn tab3 btn-absli-regular-dark-border">Done</button>';
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += "</div>";
+      str += "</form>";
+      if (winWidth() > 767) {
+        childForm[1].innerHTML = str;
+      } else {
+        childForm[0].innerHTML = str;
+      }
+    }
+  }
+  var mobileNumber = document.getElementById("mobileNumber");
+  var fullName = document.getElementById("fullName");
+  var email = document.getElementById("email");
+  var checkbox = document.getElementById("customCheck1");
+  var btnTab1 = document.getElementsByClassName("tab1");
+  var btnTab2 = document.getElementsByClassName("tab2");
+  var btnTab3 = document.getElementsByClassName("tab3");
+  var formTab1 = document.getElementsByClassName("form-tab1");
+  var formTab2 = document.getElementsByClassName("form-tab2");
+  var formTab3 = document.getElementsByClassName("form-tab3");
+  // var formActiveDsk = document.querySelectorAll(".dsk .form-active");
+  var formActiveMob = document.querySelectorAll(".mob .form-active");
+  /* Dynamic From Generation | End */
+
   function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -209,117 +349,117 @@ window.onload = function () {
   function validateFormTab1() {
     // This function deals with validation of the form fields
     var valid = true;
-    if (winWidth() > 767) {
-      if (mobileNumber.value == "") {
-        alert("Enter your mobile number");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (mobileNumber.value.length < 10) {
-        alert("Please enter valid mobile number");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (isNaN(mobileNumber.value)) {
-        alert("Mobile Number Should Be Numeric only..!!!");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (!checkbox.checked) {
-        alert("Checkbox is required");
-        checkbox.focus();
-        valid = false;
-        return valid;
-      }
-      return valid;
-    } else {
-      if (mobileNumber1.value == "") {
-        alert("Enter your mobile number");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (mobileNumber1.value.length < 10) {
-        alert("Please enter valid mobile number");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (isNaN(mobileNumber1.value)) {
-        alert("Mobile Number Should Be Numeric only..!!!");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (!checkbox1.checked) {
-        alert("Checkbox is required");
-        checkbox.focus();
-        valid = false;
-        return valid;
-      }
+    // if (winWidth() > 767) {
+    if (mobileNumber.value == "") {
+      alert("Enter your mobile number");
+      mobileNumber.focus();
+      valid = false;
       return valid;
     }
+
+    if (mobileNumber.value.length < 10) {
+      alert("Please enter valid mobile number");
+      mobileNumber.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (isNaN(mobileNumber.value)) {
+      alert("Mobile Number Should Be Numeric only..!!!");
+      mobileNumber.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (!checkbox.checked) {
+      alert("I agree is required");
+      checkbox.focus();
+      valid = false;
+      return valid;
+    }
+    return valid;
+    // } else {
+    //   if (mobileNumber1.value == "") {
+    //     alert("Enter your mobile number");
+    //     mobileNumber.focus();
+    //     valid = false;
+    //     return valid;
+    //   }
+
+    //   if (mobileNumber1.value.length < 10) {
+    //     alert("Please enter valid mobile number");
+    //     mobileNumber.focus();
+    //     valid = false;
+    //     return valid;
+    //   }
+
+    //   if (isNaN(mobileNumber1.value)) {
+    //     alert("Mobile Number Should Be Numeric only..!!!");
+    //     mobileNumber.focus();
+    //     valid = false;
+    //     return valid;
+    //   }
+
+    //   if (!checkbox1.checked) {
+    //     alert("Checkbox is required");
+    //     checkbox.focus();
+    //     valid = false;
+    //     return valid;
+    //   }
+    //   return valid;
+    // }
   }
 
   function validateFormTab2() {
     // This function deals with validation of the form fields
     var valid = true;
-    if (winWidth() > 767) {
-      if (fullName.value == "") {
-        alert("Enter your name");
-        fullName.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (email.value == "") {
-        alert("Enter your email");
-        email.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (!validateEmail(email.value)) {
-        alert("Please enter valid email");
-        email.focus();
-        valid = false;
-        return valid;
-      }
-
-      return valid;
-    } else {
-      if (fullName1.value == "") {
-        alert("Enter your name");
-        fullName.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (email1.value == "") {
-        alert("Enter your email");
-        email.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (!validateEmail(email1.value)) {
-        alert("Please enter valid email");
-        email.focus();
-        valid = false;
-        return valid;
-      }
-
+    // if (winWidth() > 767) {
+    if (fullName.value == "") {
+      alert("Enter your name");
+      fullName.focus();
+      valid = false;
       return valid;
     }
+
+    if (email.value == "") {
+      alert("Enter your email");
+      email.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (!validateEmail(email.value)) {
+      alert("Please enter valid email");
+      email.focus();
+      valid = false;
+      return valid;
+    }
+
+    return valid;
+    // } else {
+    //   if (fullName1.value == "") {
+    //     alert("Enter your name");
+    //     fullName.focus();
+    //     valid = false;
+    //     return valid;
+    //   }
+
+    //   if (email1.value == "") {
+    //     alert("Enter your email");
+    //     email.focus();
+    //     valid = false;
+    //     return valid;
+    //   }
+
+    //   if (!validateEmail(email1.value)) {
+    //     alert("Please enter valid email");
+    //     email.focus();
+    //     valid = false;
+    //     return valid;
+    //   }
+
+    //   return valid;
+    // }
   }
 
   function fade(element) {
@@ -376,48 +516,49 @@ window.onload = function () {
   };
 
   function fixStepIndicator(n) {
-    if (winWidth() > 767) {
-      var i,
-        x = formActiveDsk;
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" show", "");
-      }
-      //... and adds the "active" class to the current step:
-      x[n].className += " show";
-    } else {
-      var i,
-        x = formActiveMob;
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" show", "");
-      }
-      //... and adds the "active" class to the current step:
-      x[n].className += " show";
+    // if (winWidth() > 767) {
+    //   var i,
+    //     x = formActiveDsk;
+    //   for (i = 0; i < x.length; i++) {
+    //     x[i].className = x[i].className.replace(" show", "");
+    //   }
+    //   //... and adds the "active" class to the current step:
+    //   x[n].className += " show";
+    // }
+    // else {
+    var i,
+      x = formActiveMob;
+    for (i = 0; i < x.length; i++) {
+      x[i].className = x[i].className.replace(" show", "");
     }
+    //... and adds the "active" class to the current step:
+    x[n].className += " show";
+    // }
   }
 
-  if (btnTab1.length > 0) {
-    formActiveDsk[0].addEventListener("click", function (e) {
-      tabOne(1);
-    });
+  if (btnTab1.length) {
+    // formActiveDsk[0].addEventListener("click", function (e) {
+    //   tabOne(1);
+    // });
 
-    formActiveDsk[1].addEventListener("click", function (e) {
-      var valid = validateFormTab1();
-      if (valid == true) {
-        tabTwo(1);
-      }
-    });
+    // formActiveDsk[1].addEventListener("click", function (e) {
+    //   var valid = validateFormTab1();
+    //   if (valid == true) {
+    //     tabTwo(1);
+    //   }
+    // });
 
-    formActiveDsk[2].addEventListener("click", function (e) {
-      tabOne(1);
-    });
+    // formActiveDsk[2].addEventListener("click", function (e) {
+    //   tabOne(1);
+    // });
 
-    formActiveDsk[3].addEventListener("click", function (e) {
-      tabTwo(1);
-    });
+    // formActiveDsk[3].addEventListener("click", function (e) {
+    //   tabTwo(1);
+    // });
 
-    formActiveDsk[4].addEventListener("click", function (e) {
-      tabOne(1);
-    });
+    // formActiveDsk[4].addEventListener("click", function (e) {
+    //   tabOne(1);
+    // });
 
     formActiveMob[0].addEventListener("click", function (e) {
       tabOne(0);
@@ -457,37 +598,37 @@ window.onload = function () {
     });
 
     btnTab3[0].addEventListener("click", function (e) {
-      mobileNumber1.value = "";
-      fullName1.value = "";
-      email1.value = "";
-      checkbox1.checked = false;
-      tabOne(0);
-    });
-  }
-
-  if (btnTab1.length == 2) {
-    btnTab1[1].addEventListener("click", function (e) {
-      var valid = validateFormTab1();
-      if (valid == true) {
-        tabTwo(1);
-      }
-    });
-
-    btnTab2[1].addEventListener("click", function (e) {
-      var valid = validateFormTab2();
-      if (valid == true) {
-        tabThree(1);
-      }
-    });
-
-    btnTab3[1].addEventListener("click", function (e) {
       mobileNumber.value = "";
       fullName.value = "";
       email.value = "";
       checkbox.checked = false;
-      tabOne(1);
+      tabOne(0);
     });
   }
+
+  // if (btnTab1.length == 2) {
+  //   btnTab1[1].addEventListener("click", function (e) {
+  //     var valid = validateFormTab1();
+  //     if (valid == true) {
+  //       tabTwo(1);
+  //     }
+  //   });
+
+  //   btnTab2[1].addEventListener("click", function (e) {
+  //     var valid = validateFormTab2();
+  //     if (valid == true) {
+  //       tabThree(1);
+  //     }
+  //   });
+
+  //   btnTab3[1].addEventListener("click", function (e) {
+  //     mobileNumber.value = "";
+  //     fullName.value = "";
+  //     email.value = "";
+  //     checkbox.checked = false;
+  //     tabOne(1);
+  //   });
+  // }
 
   // tab1.addEventListener("click", tabTwo);
   // tab2.addEventListener("click", tabThree);
