@@ -191,19 +191,21 @@ window.onload = function () {
   /* Windows width detection | END */
 
   /* Sticky Sidebar | START */
-  if (winWidth() > 767) {
-    sbar.classList.add("sidebar");
-  } else {
-    sbar.classList.remove("sidebar");
-  }
+  if (sbar) {
+    if (winWidth() > 767) {
+      sbar.classList.add("sidebar");
+    } else {
+      sbar.classList.remove("sidebar");
+    }
 
-  if (checkSidebar.length > 0) {
-    var sidebar = new StickySidebar(".sidebar", {
-      topSpacing: 20,
-      bottomSpacing: 20,
-      containerSelector: ".main-content",
-      innerWrapperSelector: ".sidebar__inner",
-    });
+    if (checkSidebar.length > 0) {
+      var sidebar = new StickySidebar(".sidebar", {
+        topSpacing: 20,
+        bottomSpacing: 20,
+        containerSelector: ".main-content",
+        innerWrapperSelector: ".sidebar__inner",
+      });
+    }
   }
   /* Sticky Sidebar | END */
 
@@ -334,23 +336,13 @@ window.onload = function () {
   };
 
   function fixStepIndicator(n) {
-    if (winWidth() > 767) {
-      var i,
-        x = formActiveDsk;
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" show", "");
-      }
-      //... and adds the "active" class to the current step:
-      x[n].className += " show";
-    } else {
-      var i,
-        x = formActiveMob;
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" show", "");
-      }
-      //... and adds the "active" class to the current step:
-      x[n].className += " show";
+    var i,
+      x = formActiveDsk;
+    for (i = 0; i < x.length; i++) {
+      x[i].className = x[i].className.replace(" show", "");
     }
+    //... and adds the "active" class to the current step:
+    x[n].className += " show";
   }
 
   if (btnTab1.length > 0) {
