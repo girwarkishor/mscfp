@@ -102,10 +102,7 @@ $(document).ready(function () {
               }, 3000);
             }
           );
-        } else {
         }
-      } else {
-        console.log("could not found");
       }
     }
   }
@@ -497,15 +494,37 @@ window.onload = function () {
   });
 
   /* Window Reload | Start */
-  var timeOutFunctionId;
+  // var timeOutFunctionId;
 
-  function workAfterResizeIsDone() {
-    window.location.reload();
+  // function workAfterResizeIsDone() {
+  //   window.location.reload();
+  // }
+
+  // window.addEventListener("resize", function () {
+  //   clearTimeout(timeOutFunctionId);
+  //   timeOutFunctionId = setTimeout(workAfterResizeIsDone, 500);
+  // });
+
+  var ww = $(window).width();
+  var limit = 768;
+
+  function refresh() {
+    ww = $(window).width();
+    var w =
+      ww < limit
+        ? location.reload(true)
+        : ww > limit
+        ? location.reload(true)
+        : (ww = limit);
   }
 
-  window.addEventListener("resize", function () {
-    clearTimeout(timeOutFunctionId);
-    timeOutFunctionId = setTimeout(workAfterResizeIsDone, 500);
+  var tOut;
+  $(window).resize(function () {
+    var resW = $(window).width();
+    clearTimeout(tOut);
+    if ((ww > limit && resW < limit) || (ww < limit && resW > limit)) {
+      tOut = setTimeout(refresh, 100);
+    }
   });
   /* Window Reload | End */
 
