@@ -377,9 +377,9 @@ window.onload = function () {
 
     btnTab2[0].addEventListener("click", function (e) {
       var valid = validateFormTab2();
-      // if (valid == true) {
-      //   tabThree(0);
-      // }
+      if (valid == true) {
+        tabThree(0);
+      }
     });
 
     btnTab3[0].addEventListener("click", function (e) {
