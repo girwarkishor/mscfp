@@ -349,9 +349,9 @@ window.onload = function () {
 
     formActiveDsk[1].addEventListener("click", function (e) {
       var valid = validateFormTab1();
-      if (valid == true) {
-        tabTwo(0);
-      }
+      // if (valid == true) {
+      //   tabTwo(0);
+      // }
     });
 
     formActiveDsk[2].addEventListener("click", function (e) {
@@ -377,6 +377,7 @@ window.onload = function () {
 
     btnTab2[0].addEventListener("click", function (e) {
       var valid = validateFormTab2();
+      e.preventDefault();
       if (valid == true) {
         tabThree(0);
       }
