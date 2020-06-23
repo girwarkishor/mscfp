@@ -805,6 +805,18 @@ header {
   background-position: center;
 }
 
+.video-content.pv3 {
+  background: linear-gradient(
+      0.23deg,
+      #7c7c7b 0.76%,
+      rgba(124, 124, 123, 0) 67.56%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://i.ytimg.com/vi/lDuo4bG8GpA/hqdefault.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .video-content:focus {
   outline: none !important;
 }

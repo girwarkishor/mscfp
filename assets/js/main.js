@@ -73,47 +73,17 @@ $(document).ready(function () {
 
   function setWindowWH() {
     var windowWidth = $(window).width();
-    // sessionStorage.setItem(
-    //   "dataID",
-    //   "087559e11abeac0647469d0fe16b00d6b48e7b9d"
-    // );
-    //console.log(localStorage.getItem("dataID"));
     if (windowWidth < 768) {
-      // if (getQueryStringParam("p_p_lifecycle")) {
-      if (
-        sessionStorage.getItem("dataID") ==
-        "087559e11abeac0647469d0fe16b00d6b48e7b9d"
-      )
-        // var cmMmc = getQueryStringParam("p_p_lifecycle");
-        // var paramsValue = "087559e11abeac0647469d0fe16b00d6b48e7b9d";
-        // if (cmMmc === paramsValue) {
-        var formCollapse = document.getElementsByClassName("form-tab1")[0];
-      formCollapse.classList.add("card--accordion-content");
-      formCollapse.childNodes[1].childNodes[1].childNodes[3].className =
-        "d-none";
-      formCollapse.childNodes[1].childNodes[1].childNodes[5].className =
-        "d-none";
-      console.dir(formCollapse.childNodes[1].childNodes[1].childNodes[1]);
-      formCollapse.childNodes[1].childNodes[1].childNodes[1].addEventListener(
-        "click",
-        function () {
-          $(".form-tab1 .card").slideDown("slow");
-          formCollapse.classList.remove("card--accordion-content");
-          formCollapse.classList.add("card--accordion-content-opened");
-          formCollapse.childNodes[1].childNodes[1].childNodes[1].childNodes[1].classList =
-            "d-none";
-<<<<<<< HEAD
+      if (getQueryStringParam("p_p_lifecycle")) {
+        var cmMmc = getQueryStringParam("p_p_lifecycle");
+        var paramsValue = "087559e11abeac0647469d0fe16b00d6b48e7b9d";
+        if (cmMmc === paramsValue) {
+          var formCollapse = document.getElementsByClassName("form-tab1")[0];
+          formCollapse.classList.add("card--accordion-content");
           formCollapse.childNodes[1].childNodes[1].childNodes[3].className =
-            "card-text";
-          formCollapse.childNodes[1].childNodes[1].childNodes[5].className = "";
-          setTimeout(function () {
-            formCollapse.classList.remove("card--accordion-content-opened");
-          }, 3000);
-        }
-      );
-      // }
-      // }
-=======
+            "d-none";
+          formCollapse.childNodes[1].childNodes[1].childNodes[5].className =
+            "d-none";
           console.dir(formCollapse.childNodes[1].childNodes[1].childNodes[1]);
           formCollapse.childNodes[1].childNodes[1].childNodes[1].addEventListener(
             "click",
@@ -134,7 +104,6 @@ $(document).ready(function () {
           );
         }
       }
->>>>>>> header
     }
   }
   $(window).on("load resize", function () {
@@ -445,30 +414,6 @@ window.onload = function () {
   });
 
   /* Window Reload | Start */
-  // var timeOutFunctionId;
-<<<<<<< HEAD
-
-  // function workAfterResizeIsDone() {
-  //   window.location.reload();
-  // }
-
-  // window.addEventListener("resize", function () {
-  //   clearTimeout(timeOutFunctionId);
-  //   timeOutFunctionId = setTimeout(workAfterResizeIsDone, 500);
-=======
-
-  // function workAfterResizeIsDone() {
-  //   window.location.reload();
-  // }
-
-  // window.addEventListener("resize", function () {
-  //   if ($(window).width() < 767) {
-  //     clearTimeout(timeOutFunctionId);
-  //     timeOutFunctionId = setTimeout(workAfterResizeIsDone, 500);
-  //   }
->>>>>>> header
-  // });
-
   var ww = $(window).width();
   var limit = 768;
 
