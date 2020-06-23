@@ -102,6 +102,7 @@ $(document).ready(function () {
           formCollapse.classList.add("card--accordion-content-opened");
           formCollapse.childNodes[1].childNodes[1].childNodes[1].childNodes[1].classList =
             "d-none";
+<<<<<<< HEAD
           formCollapse.childNodes[1].childNodes[1].childNodes[3].className =
             "card-text";
           formCollapse.childNodes[1].childNodes[1].childNodes[5].className = "";
@@ -112,6 +113,28 @@ $(document).ready(function () {
       );
       // }
       // }
+=======
+          console.dir(formCollapse.childNodes[1].childNodes[1].childNodes[1]);
+          formCollapse.childNodes[1].childNodes[1].childNodes[1].addEventListener(
+            "click",
+            function () {
+              $(".form-tab1 .card").slideDown("slow");
+              formCollapse.classList.remove("card--accordion-content");
+              formCollapse.classList.add("card--accordion-content-opened");
+              formCollapse.childNodes[1].childNodes[1].childNodes[1].childNodes[1].classList =
+                "d-none";
+              formCollapse.childNodes[1].childNodes[1].childNodes[3].className =
+                "card-text";
+              formCollapse.childNodes[1].childNodes[1].childNodes[5].className =
+                "";
+              setTimeout(function () {
+                formCollapse.classList.remove("card--accordion-content-opened");
+              }, 3000);
+            }
+          );
+        }
+      }
+>>>>>>> header
     }
   }
   $(window).on("load resize", function () {
@@ -126,19 +149,15 @@ window.onload = function () {
   var fullName = document.getElementById("fullName");
   var email = document.getElementById("email");
   var checkbox = document.getElementById("customCheck1");
-  var mobileNumber1 = document.getElementById("mobileNumber1");
-  var fullName1 = document.getElementById("fullName1");
-  var email1 = document.getElementById("email1");
-  var checkbox1 = document.getElementById("customCheck2");
   var btnTab1 = document.getElementsByClassName("tab1");
   var btnTab2 = document.getElementsByClassName("tab2");
   var btnTab3 = document.getElementsByClassName("tab3");
   var formTab1 = document.getElementsByClassName("form-tab1");
   var formTab2 = document.getElementsByClassName("form-tab2");
   var formTab3 = document.getElementsByClassName("form-tab3");
+  var sbar = document.getElementById("sbar");
   var checkSidebar = document.getElementsByClassName("sidebar");
   var formActiveDsk = document.querySelectorAll(".dsk .form-active");
-  var formActiveMob = document.querySelectorAll(".mob .form-active");
   var deskFormWidth = $(window).width();
 
   /* Coupon Code | START */
@@ -193,138 +212,114 @@ window.onload = function () {
   });
   /* Range Slider | END  */
 
+  /* Windows width detection | START */
   function winWidth() {
     return deskFormWidth;
   }
+  /* Windows width detection | END */
 
-  if (checkSidebar.length > 0) {
-    var sidebar = new StickySidebar(".sidebar", {
-      topSpacing: 20,
-      bottomSpacing: 20,
-      containerSelector: ".main-content",
-      innerWrapperSelector: ".sidebar__inner",
-    });
+  /* Sticky Sidebar | START */
+  if (sbar) {
+    if (winWidth() > 767) {
+      sbar.classList.add("sidebar");
+    } else {
+      sbar.classList.remove("sidebar");
+    }
+
+    if (checkSidebar.length > 0) {
+      var sidebar = new StickySidebar(".sidebar", {
+        topSpacing: 20,
+        bottomSpacing: 20,
+        containerSelector: ".main-content",
+        innerWrapperSelector: ".sidebar__inner",
+      });
+    }
   }
+  /* Sticky Sidebar | END */
 
+  /* Form | START */
   function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
 
+  function checkAlphaWithSpace(fullName) {
+    const re = /^[a-zA-Z ]*$/;
+    return re.test(fullName);
+  }
+
   function validateFormTab1() {
     // This function deals with validation of the form fields
     var valid = true;
-    if (winWidth() > 767) {
-      if (mobileNumber.value == "") {
-        alert("Enter your mobile number");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (mobileNumber.value.length < 10) {
-        alert("Please enter valid mobile number");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (isNaN(mobileNumber.value)) {
-        alert("Mobile Number Should Be Numeric only..!!!");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (!checkbox.checked) {
-        alert("Checkbox is required");
-        checkbox.focus();
-        valid = false;
-        return valid;
-      }
-      return valid;
-    } else {
-      if (mobileNumber1.value == "") {
-        alert("Enter your mobile number");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (mobileNumber1.value.length < 10) {
-        alert("Please enter valid mobile number");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (isNaN(mobileNumber1.value)) {
-        alert("Mobile Number Should Be Numeric only..!!!");
-        mobileNumber.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (!checkbox1.checked) {
-        alert("Checkbox is required");
-        checkbox.focus();
-        valid = false;
-        return valid;
-      }
+    if (mobileNumber.value == "") {
+      alert("Enter your mobile number");
+      mobileNumber.focus();
+      valid = false;
       return valid;
     }
+
+    if (mobileNumber.value.length < 10) {
+      alert("Please enter valid mobile number");
+      mobileNumber.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (isNaN(mobileNumber.value)) {
+      alert("Mobile Number Should Be Numeric only..!!!");
+      mobileNumber.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (!checkbox.checked) {
+      alert("Agree is required");
+      checkbox.focus();
+      valid = false;
+      return valid;
+    }
+    return valid;
   }
 
   function validateFormTab2() {
     // This function deals with validation of the form fields
     var valid = true;
-    if (winWidth() > 767) {
-      if (fullName.value == "") {
-        alert("Enter your name");
-        fullName.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (email.value == "") {
-        alert("Enter your email");
-        email.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (!validateEmail(email.value)) {
-        alert("Please enter valid email");
-        email.focus();
-        valid = false;
-        return valid;
-      }
-
-      return valid;
-    } else {
-      if (fullName1.value == "") {
-        alert("Enter your name");
-        fullName.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (email1.value == "") {
-        alert("Enter your email");
-        email.focus();
-        valid = false;
-        return valid;
-      }
-
-      if (!validateEmail(email1.value)) {
-        alert("Please enter valid email");
-        email.focus();
-        valid = false;
-        return valid;
-      }
-
+    if (fullName.value == "") {
+      alert("Enter your name");
+      fullName.focus();
+      valid = false;
       return valid;
     }
+
+    if (!isNaN(fullName.value)) {
+      alert("Invalid name");
+      fullName.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (!checkAlphaWithSpace(fullName.value)) {
+      alert("Please enter valid name");
+      fullName.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (email.value == "") {
+      alert("Enter your email");
+      email.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (!validateEmail(email.value)) {
+      alert("Please enter valid email");
+      email.focus();
+      valid = false;
+      return valid;
+    }
+
+    return valid;
   }
 
   function fade(element) {
@@ -381,72 +376,41 @@ window.onload = function () {
   };
 
   function fixStepIndicator(n) {
-    if (winWidth() > 767) {
-      var i,
-        x = formActiveDsk;
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" show", "");
-      }
-      //... and adds the "active" class to the current step:
-      x[n].className += " show";
-    } else {
-      var i,
-        x = formActiveMob;
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" show", "");
-      }
-      //... and adds the "active" class to the current step:
-      x[n].className += " show";
+    var i,
+      x = formActiveDsk;
+    for (i = 0; i < x.length; i++) {
+      x[i].className = x[i].className.replace(" show", "");
     }
+    //... and adds the "active" class to the current step:
+    x[n].className += " show";
   }
 
   if (btnTab1.length > 0) {
     formActiveDsk[0].addEventListener("click", function (e) {
-      tabOne(1);
+      tabOne(0);
     });
 
     formActiveDsk[1].addEventListener("click", function (e) {
       var valid = validateFormTab1();
-      if (valid == true) {
-        tabTwo(1);
-      }
+      // if (valid == true) {
+      //   tabTwo(0);
+      // }
     });
 
     formActiveDsk[2].addEventListener("click", function (e) {
-      tabOne(1);
+      tabOne(0);
     });
 
     formActiveDsk[3].addEventListener("click", function (e) {
-      tabTwo(1);
-    });
-
-    formActiveDsk[4].addEventListener("click", function (e) {
-      tabOne(1);
-    });
-
-    formActiveMob[0].addEventListener("click", function (e) {
-      tabOne(0);
-    });
-
-    formActiveMob[1].addEventListener("click", function (e) {
-      var valid = validateFormTab1();
-      if (valid == true) {
-        tabTwo(0);
-      }
-    });
-
-    formActiveMob[2].addEventListener("click", function (e) {
-      tabOne(0);
-    });
-
-    formActiveMob[3].addEventListener("click", function (e) {
       tabTwo(0);
     });
 
-    formActiveMob[4].addEventListener("click", function (e) {
+    formActiveDsk[4].addEventListener("click", function (e) {
       tabOne(0);
     });
+  }
 
+  if (btnTab1.length > 0) {
     btnTab1[0].addEventListener("click", function (e) {
       var valid = validateFormTab1();
       if (valid == true) {
@@ -456,43 +420,22 @@ window.onload = function () {
 
     btnTab2[0].addEventListener("click", function (e) {
       var valid = validateFormTab2();
+      e.preventDefault();
       if (valid == true) {
         tabThree(0);
       }
     });
 
     btnTab3[0].addEventListener("click", function (e) {
-      mobileNumber1.value = "";
-      fullName1.value = "";
-      email1.value = "";
-      checkbox1.checked = false;
-      tabOne(0);
-    });
-  }
-
-  if (btnTab1.length == 2) {
-    btnTab1[1].addEventListener("click", function (e) {
-      var valid = validateFormTab1();
-      if (valid == true) {
-        tabTwo(1);
-      }
-    });
-
-    btnTab2[1].addEventListener("click", function (e) {
-      var valid = validateFormTab2();
-      if (valid == true) {
-        tabThree(1);
-      }
-    });
-
-    btnTab3[1].addEventListener("click", function (e) {
       mobileNumber.value = "";
       fullName.value = "";
       email.value = "";
       checkbox.checked = false;
-      tabOne(1);
+      tabOne(0);
     });
   }
+
+  /* Form | END */
 
   // tab1.addEventListener("click", tabTwo);
   // tab2.addEventListener("click", tabThree);
@@ -503,6 +446,7 @@ window.onload = function () {
 
   /* Window Reload | Start */
   // var timeOutFunctionId;
+<<<<<<< HEAD
 
   // function workAfterResizeIsDone() {
   //   window.location.reload();
@@ -511,6 +455,18 @@ window.onload = function () {
   // window.addEventListener("resize", function () {
   //   clearTimeout(timeOutFunctionId);
   //   timeOutFunctionId = setTimeout(workAfterResizeIsDone, 500);
+=======
+
+  // function workAfterResizeIsDone() {
+  //   window.location.reload();
+  // }
+
+  // window.addEventListener("resize", function () {
+  //   if ($(window).width() < 767) {
+  //     clearTimeout(timeOutFunctionId);
+  //     timeOutFunctionId = setTimeout(workAfterResizeIsDone, 500);
+  //   }
+>>>>>>> header
   // });
 
   var ww = $(window).width();
@@ -534,6 +490,7 @@ window.onload = function () {
       tOut = setTimeout(refresh, 100);
     }
   });
+
   /* Window Reload | End */
 
   /* Read More | Starts */
@@ -577,7 +534,7 @@ window.onload = function () {
     var whatsappText = "This is whatsappText";
     var emailSubject = "This is emailSubject";
     var emailText = "This is emailText";
-    var referralUrl = "www.google.com";
+    var referralUrl = window.location.href;
 
     if (/MacIntel|iPhone|iPad|iPod/i.test(navigator.platform)) {
       getSmsID.setAttribute(
@@ -694,6 +651,7 @@ window.onload = function () {
       annualisedMonthlySavings * timeWeightedROR;
     var amtRequiredToFund =
       userInputs.scenario *
+      100000 *
       Math.pow(1 + parseFloat(userInputs.inflation), yearsLeft);
     var totalAmtRequired = Math.round(amtRequiredToFund, 2);
     var amountNeeded = amtRequiredToFund - totalSavings;
@@ -718,7 +676,7 @@ window.onload = function () {
           ? ""
           : document.getElementById("education").classList.add("d-none");
         document.getElementById("scenario").value = currentCostOfMarriage.Son;
-        userInputs.scenario = currentCostOfMarriage.Son * 100000;
+        userInputs.scenario = currentCostOfMarriage.Son;
       }
     });
 
@@ -727,7 +685,7 @@ window.onload = function () {
       .addEventListener("change", function (e) {
         document.getElementById("scenario").value =
           currentCostOfEducation[e.target.value];
-        userInputs.scenario = currentCostOfEducation[e.target.value] * 100000;
+        userInputs.scenario = currentCostOfEducation[e.target.value];
       });
 
     for (var i = 0; i < document.querySelectorAll(".form").length; i++) {
