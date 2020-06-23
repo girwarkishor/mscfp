@@ -145,13 +145,58 @@ window.onload = function () {
 
   if (document.getElementsByClassName("bWMob").length > 0) {
     for (var i = 0; i < document.getElementsByClassName("bWMob").length; i++) {
-      if (getQueryStringParam("coupon")) {
-        var absliBwCup = getQueryStringParam("coupon");
+      var absliBwCup = getQueryStringParam("coupon") || "";
+      var absliUTM = getQueryStringParam("utm") || "";
+      if (
+        getQueryStringParam("coupon") !== "absliemail" &&
+        getQueryStringParam("coupon") !== "abslisms" &&
+        getQueryStringParam("coupon") != "absliwhatsapp" &&
+        getQueryStringParam("coupon") != "abslisocialmedia" &&
+        !getQueryStringParam("utm")
+      ) {
+        document
+          .getElementsByClassName("bWMob")
+          [i].setAttribute(
+            "href",
+            "https://brainwonders.in/adityabirla-test/absli/" + absliBwCup
+          );
+      } else if (getQueryStringParam("coupon") == "absliemail") {
         document
           .getElementsByClassName("bWMob")
           [i].setAttribute(
             "href",
             "https://brainwonders.in/adityabirla-test/" + absliBwCup
+          );
+      } else if (getQueryStringParam("coupon") == "abslisms") {
+        document
+          .getElementsByClassName("bWMob")
+          [i].setAttribute(
+            "href",
+            "https://brainwonders.in/adityabirla-test/" + absliBwCup
+          );
+      } else if (getQueryStringParam("coupon") == "absliwhatsapp") {
+        document
+          .getElementsByClassName("bWMob")
+          [i].setAttribute(
+            "href",
+            "https://brainwonders.in/adityabirla-test/" + absliBwCup
+          );
+      } else if (getQueryStringParam("coupon") == "abslisocialmedia") {
+        document
+          .getElementsByClassName("bWMob")
+          [i].setAttribute(
+            "href",
+            "https://brainwonders.in/adityabirla-test/" + absliBwCup
+          );
+      } else if (getQueryStringParam("coupon") && getQueryStringParam("utm")) {
+        document
+          .getElementsByClassName("bWMob")
+          [i].setAttribute(
+            "href",
+            "https://brainwonders.in/adityabirla-test/absli/" +
+              absliBwCup +
+              "?utm=" +
+              absliUTM
           );
       } else {
         document
@@ -217,6 +262,11 @@ window.onload = function () {
     return re.test(fullName);
   }
 
+  function validateMobile(mobile) {
+    const re = /^[6-9]\d{9}$/;
+    return re.test(mobile);
+  }
+
   function validateFormTab1() {
     // This function deals with validation of the form fields
     var valid = true;
@@ -236,6 +286,13 @@ window.onload = function () {
 
     if (isNaN(mobileNumber.value)) {
       alert("Mobile Number Should Be Numeric only..!!!");
+      mobileNumber.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (!validateMobile(mobileNumber.value)) {
+      alert("Please enter valid mobile number");
       mobileNumber.focus();
       valid = false;
       return valid;
@@ -531,20 +588,20 @@ window.onload = function () {
   // Calculator | Start
   // current cost of education for your child
   var currentCostOfEducation = {
-    Architect: 5.25,
-    Scientist: 1.01,
-    Astronomer: 1.5,
-    ComputerScienceEngineer: 3.65,
-    CharteredAccountant: 0.7,
-    ITStrategist: 3.05,
-    Actor: 1.1,
-    EventManager: 6.1,
-    Sociologist: 2.57,
-    UXDesigner: 10.15,
-    Doctor: 7.55,
-    Lawyer: 7.75,
-    SportsCoach: 1.01,
-    MBA: 2.3,
+    Architect: 15.24,
+    Scientist: 4.5,
+    Astronomer: 6.8,
+    ComputerScienceEngineer: 13.75,
+    CharteredAccountant: 0.75,
+    ITStrategist: 13.5,
+    Actor: 3,
+    EventManager: 22.5,
+    Sociologist: 11.4,
+    UXDesigner: 11.25,
+    Doctor: 36,
+    Lawyer: 10,
+    SportsCoach: 4.5,
+    MBA: 22,
     Other: 0,
   };
 
