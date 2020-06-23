@@ -212,6 +212,11 @@ window.onload = function () {
     return re.test(email);
   }
 
+  function checkAlphaWithSpace(fullName) {
+    const re = /^[a-zA-Z ]*$/;
+    return re.test(fullName);
+  }
+
   function validateFormTab1() {
     // This function deals with validation of the form fields
     var valid = true;
@@ -257,6 +262,13 @@ window.onload = function () {
 
     if (!isNaN(fullName.value)) {
       alert("Invalid name");
+      fullName.focus();
+      valid = false;
+      return valid;
+    }
+
+    if (!checkAlphaWithSpace(fullName.value)) {
+      alert("Please enter valid name");
       fullName.focus();
       valid = false;
       return valid;
@@ -480,7 +492,7 @@ window.onload = function () {
     var whatsappText = "This is whatsappText";
     var emailSubject = "This is emailSubject";
     var emailText = "This is emailText";
-    var referralUrl = "www.google.com";
+    var referralUrl = window.location.href;
 
     if (/MacIntel|iPhone|iPad|iPod/i.test(navigator.platform)) {
       getSmsID.setAttribute(
@@ -597,6 +609,7 @@ window.onload = function () {
       annualisedMonthlySavings * timeWeightedROR;
     var amtRequiredToFund =
       userInputs.scenario *
+      100000 *
       Math.pow(1 + parseFloat(userInputs.inflation), yearsLeft);
     var totalAmtRequired = Math.round(amtRequiredToFund, 2);
     var amountNeeded = amtRequiredToFund - totalSavings;
@@ -621,7 +634,7 @@ window.onload = function () {
           ? ""
           : document.getElementById("education").classList.add("d-none");
         document.getElementById("scenario").value = currentCostOfMarriage.Son;
-        userInputs.scenario = currentCostOfMarriage.Son * 100000;
+        userInputs.scenario = currentCostOfMarriage.Son;
       }
     });
 
@@ -630,7 +643,7 @@ window.onload = function () {
       .addEventListener("change", function (e) {
         document.getElementById("scenario").value =
           currentCostOfEducation[e.target.value];
-        userInputs.scenario = currentCostOfEducation[e.target.value] * 100000;
+        userInputs.scenario = currentCostOfEducation[e.target.value];
       });
 
     for (var i = 0; i < document.querySelectorAll(".form").length; i++) {
