@@ -21,6 +21,19 @@ $(document).ready(function () {
     autoplaySpeed: 2000,
   });
 
+  /* YouTube Video Popup | START */
+
+  $(".popup-youtube").magnificPopup({
+    // disableOn: 700,
+    type: "iframe",
+    mainClass: "mfp-fade",
+    removalDelay: 160,
+    preloader: false,
+    fixedContentPos: false,
+  });
+
+  /* YouTube Video Popup | END */
+
   $(function () {
     var $el, $ps, $up, totalHeight;
 
@@ -110,8 +123,6 @@ $(document).ready(function () {
     setWindowWH();
   });
 });
-
-window.DOMContentLoaded = function () {};
 
 window.onload = function () {
   var mobileNumber = document.getElementById("mobileNumber");
