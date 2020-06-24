@@ -22,15 +22,16 @@ $(document).ready(function () {
   });
 
   /* YouTube Video Popup | START */
-
-  $(".popup-youtube").magnificPopup({
-    // disableOn: 700,
-    type: "iframe",
-    mainClass: "mfp-fade",
-    removalDelay: 160,
-    preloader: false,
-    fixedContentPos: false,
-  });
+  if ($("a").hasClass("popup-youtube")) {
+    $(".popup-youtube").magnificPopup({
+      // disableOn: 700,
+      type: "iframe",
+      mainClass: "mfp-fade",
+      removalDelay: 160,
+      preloader: false,
+      fixedContentPos: false,
+    });
+  }
 
   /* YouTube Video Popup | END */
 
@@ -541,12 +542,17 @@ window.onload = function () {
     var getFacebookID_Mobile = document.getElementById("getFacebookID_Mob");
     var getTwitterID_Mobile = document.getElementById("getTwitterID_Mob");
     var getWhatsappID_Mobile = document.getElementById("getWhatsappID_Mob");
-    var smsText = "This is text message";
-    var facebookText = "This is facebookText";
-    var twitterText = "This is twitterText";
-    var whatsappText = "This is whatsappText";
-    var emailSubject = "This is emailSubject";
-    var emailText = "This is emailText";
+    var smsText =
+      "Check out the Child Aptitude Test powered by Brainwonders in association with Aditya Birla Sun Life Insurance. Click on the link to take the test today: ";
+    var facebookText =
+      "Check out the Child Aptitude Test powered by Brainwonders in association with Aditya Birla Sun Life Insurance. Click on the link to take the test today: ";
+    var twitterText =
+      "Check out the Child Aptitude Test powered by Brainwonders in association with Aditya Birla Sun Life Insurance. Click on the link to take the test today: ";
+    var whatsappText =
+      "Check out the Child Aptitude Test powered by Brainwonders in association with Aditya Birla Sun Life Insurance. Click on the link to take the test today: ";
+    var emailSubject = "ABSLI Child's Future Assured Plan";
+    var emailText =
+      "Check out the Child Aptitude Test powered by Brainwonders in association with Aditya Birla Sun Life Insurance. Click on the link to take the test today: ";
     var referralUrl = window.location.href;
 
     if (/MacIntel|iPhone|iPad|iPod/i.test(navigator.platform)) {
