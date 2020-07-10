@@ -155,67 +155,94 @@ window.onload = function () {
     return queryStringList[param];
   }
 
+  function removeURLParameter(url, parameter) {
+    //prefer to use l.search if you have a location/link object
+    var urlparts = url.split("?");
+    if (urlparts.length >= 2) {
+      var prefix = encodeURIComponent(parameter) + "=";
+      var pars = urlparts[1].split(/[&;]/g);
+
+      //reverse iteration as may be destructive
+      for (var i = pars.length; i-- > 0; ) {
+        //idiom for string.startsWith
+        if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+          pars.splice(i, 1);
+        }
+      }
+
+      return urlparts[0] + (pars.length > 0 ? "?" + pars.join("&") : "");
+    }
+    return url;
+  }
+
   if (document.getElementsByClassName("bWMob").length > 0) {
     for (var i = 0; i < document.getElementsByClassName("bWMob").length; i++) {
       var absliBwCup = getQueryStringParam("coupon") || "";
-      var absliUTM = getQueryStringParam("utm") || "";
+      var mrkQuerySting =
+        removeURLParameter(window.location.href, "coupon").split("?")[1] || "";
+      if (mrkQuerySting) {
+        mrkQuerySting = "?" + mrkQuerySting;
+      } else {
+        mrkQuerySting = "";
+      }
+
       if (
         getQueryStringParam("coupon") !== "absliemail" &&
         getQueryStringParam("coupon") !== "abslisms" &&
-        getQueryStringParam("coupon") != "absliwhatsapp" &&
-        getQueryStringParam("coupon") != "abslisocialmedia" &&
-        !getQueryStringParam("utm")
+        getQueryStringParam("coupon") !== "absliwhatsapp" &&
+        getQueryStringParam("coupon") !== "abslisocialmedia" &&
+        absliBwCup !== ""
       ) {
         document
           .getElementsByClassName("bWMob")
           [i].setAttribute(
             "href",
-            "https://brainwonders.in/adityabirla-test/absli/" + absliBwCup
+            "https://adityabirla-test.brainwonders.in/absli/" +
+              absliBwCup +
+              mrkQuerySting
           );
       } else if (getQueryStringParam("coupon") == "absliemail") {
         document
           .getElementsByClassName("bWMob")
           [i].setAttribute(
             "href",
-            "https://brainwonders.in/adityabirla-test/" + absliBwCup
+            "https://adityabirla-test.brainwonders.in/absli/" +
+              absliBwCup +
+              mrkQuerySting
           );
       } else if (getQueryStringParam("coupon") == "abslisms") {
         document
           .getElementsByClassName("bWMob")
           [i].setAttribute(
             "href",
-            "https://brainwonders.in/adityabirla-test/" + absliBwCup
+            "https://adityabirla-test.brainwonders.in/absli/" +
+              absliBwCup +
+              mrkQuerySting
           );
       } else if (getQueryStringParam("coupon") == "absliwhatsapp") {
         document
           .getElementsByClassName("bWMob")
           [i].setAttribute(
             "href",
-            "https://brainwonders.in/adityabirla-test/" + absliBwCup
+            "https://adityabirla-test.brainwonders.in/absli/" +
+              absliBwCup +
+              mrkQuerySting
           );
       } else if (getQueryStringParam("coupon") == "abslisocialmedia") {
         document
           .getElementsByClassName("bWMob")
           [i].setAttribute(
             "href",
-            "https://brainwonders.in/adityabirla-test/" + absliBwCup
-          );
-      } else if (getQueryStringParam("coupon") && getQueryStringParam("utm")) {
-        document
-          .getElementsByClassName("bWMob")
-          [i].setAttribute(
-            "href",
-            "https://brainwonders.in/adityabirla-test/absli/" +
+            "https://adityabirla-test.brainwonders.in/absli" +
               absliBwCup +
-              "?utm=" +
-              absliUTM
+              mrkQuerySting
           );
       } else {
         document
           .getElementsByClassName("bWMob")
           [i].setAttribute(
             "href",
-            "https://brainwonders.in/adityabirla-test/absli"
+            "https://adityabirla-test.brainwonders.in/absli" + mrkQuerySting
           );
       }
     }
